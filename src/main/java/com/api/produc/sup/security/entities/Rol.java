@@ -1,7 +1,6 @@
 package com.api.produc.sup.security.entities;
 
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Type;
 
 import com.api.produc.sup.security.enums.TipoRol;
 
@@ -29,10 +30,17 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    
+   
+    /*
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "roles", nullable=false, unique = true , length=50)
+    @Type(type = "pgsql_enum")
+    @Column(columnDefinition = "rol")
+    private TipoRol rol;
+*/
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "rol")
     private TipoRol rol;
 
     /**
