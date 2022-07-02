@@ -1,3 +1,5 @@
+
+
 package com.api.produc.sup.controllers;
 
 import java.util.UUID;
@@ -123,7 +125,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/listado")
-	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+	//@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getAllProducto(Pageable pageable) {
 
 		return productoService.findAllProducto(pageable);
@@ -147,7 +149,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/id/{id}")
 	@PreAuthorize("hasRole('ROLE_USER')")
-	public Producto getById(@PathVariable("id") UUID id) {
+	public Producto getById(@PathVariable("id") long id) {
 		return productoService.findById(id);
 	}
 
@@ -307,3 +309,4 @@ public class ProductoController {
 	}
 
 }
+

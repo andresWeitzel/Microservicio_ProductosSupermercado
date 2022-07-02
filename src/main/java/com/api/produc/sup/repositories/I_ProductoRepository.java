@@ -1,3 +1,5 @@
+
+
 package com.api.produc.sup.repositories;
 
 import java.io.Serializable;
@@ -18,7 +20,7 @@ public interface I_ProductoRepository extends JpaRepository<Producto, Serializab
 
 	// ============= MÉTODOS DE BÚSQUEDA ===================
 
-	public abstract Producto findById(UUID id);
+	public abstract Producto findById(long id);
 
 	@Query("select c from Producto c where c.codigo like %:codigo%")
 	public abstract Page<Producto> findByCodigo(String codigo, Pageable pageable);
@@ -45,3 +47,5 @@ public interface I_ProductoRepository extends JpaRepository<Producto, Serializab
 	public abstract Page<Producto> findByStock(int stock, Pageable pageable);
 
 }
+
+

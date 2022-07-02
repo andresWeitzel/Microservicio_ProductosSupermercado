@@ -1,3 +1,5 @@
+
+
 package com.api.produc.sup.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,10 +106,10 @@ public class ProductoService {
 	// ===== GET =====
 	// ===============
 	// ------ ID --------
-	public Producto findById(UUID id) {
+	public Producto findById(long id) {
 		try {
 
-			if (id == null) {
+			if (id <= 0 ) {
 
 				logger.error("ERROR finById : EL PRODUCTO CON EL ID " + id + " NO ES VÁLIDO!!");
 
@@ -311,3 +313,4 @@ public class ProductoService {
 	}
 
 }
+

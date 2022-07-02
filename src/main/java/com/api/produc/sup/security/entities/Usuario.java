@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.api.produc.sup.security.enums.TipoRol;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,40 +35,36 @@ public class Usuario {
     private long id;
     
     
-    @Column(name = "nombre", nullable=false,unique = true , length=200)
+    @Column(name = "nombre", nullable=false,unique = false , length=200)
     private String nombre;
     
-  
+    
     @Column(name = "username", nullable=false, unique = true ,length=100)
     private String username;
     
+
     @Column(name = "password", nullable=false, unique = false ,length=255)
     private String password;
     
     @Column(name = "email", nullable=false, unique = true ,length=255)
     private String email;
     
-   
+    
     @NotNull
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"),
-    inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuarios_id"),
+    inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<Rol> roles = new HashSet<>();
 
-    /**
-     * Constructor Parametrico sin ID
-     * @param nombre
-     * @param nombreUsuario
-     * @param email
-     * @param password
-     */
-    public Usuario(@NotNull String nombre, @NotNull String nombreUsuario, @NotNull String email, @NotNull String password) {
-        this.nombre = nombre;
-        this.username = nombreUsuario;
-        this.email = email;
-        this.password = password;
-    }
+  
 
+    public Usuario(@NotNull String nombre, @NotNull String username, @NotNull String password
+    		, @NotNull String email) {
+        this.nombre = nombre;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 
     
 }

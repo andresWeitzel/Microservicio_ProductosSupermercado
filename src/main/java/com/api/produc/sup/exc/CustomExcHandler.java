@@ -10,12 +10,15 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.api.produc.sup.exc.productos.ProductoIdMismatchExc;
 import com.api.produc.sup.exc.productos.ProductoNotFoundExc;
+//import com.api.produc.sup.exc.productos.ProductoIdMismatchExc;
+//import com.api.produc.sup.exc.productos.ProductoNotFoundExc;
 import com.api.produc.sup.security.exc.usuario.UsuarioIdMismatchExc;
 import com.api.produc.sup.security.exc.usuario.UsuarioNotFoundExc;
 
 @RestControllerAdvice
 public class CustomExcHandler extends ResponseEntityExceptionHandler{
 	
+
 	@ExceptionHandler({ProductoNotFoundExc.class})
 	protected ResponseEntity<Object> ProductoHandleNotFoundException(Exception ex, WebRequest request){
 		
@@ -27,7 +30,7 @@ public class CustomExcHandler extends ResponseEntityExceptionHandler{
 		
 		return handleExceptionInternal(ex, "Producto Según su Id No Encontrado", new HttpHeaders(), HttpStatus.NOT_FOUND, request);
 	}
-	
+
 	@ExceptionHandler({UsuarioNotFoundExc.class})
 	protected ResponseEntity<Object> UsuarioHandleNotFoundException(Exception ex, WebRequest request){
 		

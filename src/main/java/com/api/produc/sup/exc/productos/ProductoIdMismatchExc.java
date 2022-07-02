@@ -1,3 +1,6 @@
+
+
+
 package com.api.produc.sup.exc.productos;
 
 public class ProductoIdMismatchExc extends RuntimeException {
@@ -22,3 +25,4 @@ public class ProductoIdMismatchExc extends RuntimeException {
 	}
 
 }
+

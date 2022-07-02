@@ -11,23 +11,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class NuevoUsuarioDTO {
-	 	
-		@NotBlank
-	    private String nombre;
+@AllArgsConstructor
+public class SigninUsuarioDTO {
+    
+	@NotBlank
+    private String nombre;
+    
+    @NotBlank
+    private String username;
 
-		@Email
-	    private String email;
-	    
-		@NotBlank
-	    private String username;
+    @NotBlank
+    private String password;
+    
+    @Email
+    private String email;
+    
+    private Set<String> roles = new HashSet<>();
 
-		@NotBlank
-	    private String password;
-	    
-		private Set<String> roles = new HashSet<>();
 
-	    
 }

@@ -21,34 +21,33 @@ public interface I_UsuarioRepository extends JpaRepository<Usuario, Serializable
 	
 	// ============= MÉTODOS DE BÚSQUEDA ===================
 
-	public Optional<Usuario> findById(long id);
+		public Optional<Usuario> findById(long id);
 
-	@Query("select c from Usuario c where c.nombre like %:nombre%")
-	public Page<Usuario>findByNombre(String nombre, Pageable pageable);
-	
-	
-	public Optional<Usuario> findByUsername(String username);
-	
-	@Query("select c from Usuario c where c.password like %:password%")
-	public Page<Usuario> findByPassword(String password, Pageable pageable);
-
-
-	@Query("select c from Usuario c where c.email like %:email%")
-	public Page<Usuario> findByEmail(String email, Pageable pageable);
-	
-	
-	public Page<Usuario> findAll(Pageable pageable);
-
-	
-	
-	// ============= MÉTODOS DE COMPROBACIONES ===================
+		@Query("select c from Usuario c where c.nombre like %:nombre%")
+		public Page<Usuario>findByNombre(String nombre, Pageable pageable);
+		
+		
+		public Optional<Usuario> findByUsername(String username);
+		
+		@Query("select c from Usuario c where c.password like %:password%")
+		public Page<Usuario> findByPassword(String password, Pageable pageable);
 
 
-    boolean existsByUsername(String username);
-    
-    
-    boolean existsByEmail(String email);
+		@Query("select c from Usuario c where c.email like %:email%")
+		public Page<Usuario> findByEmail(String email, Pageable pageable);
+		
+		
+		public Page<Usuario> findAll(Pageable pageable);
+
+		
+		
+		// ============= MÉTODOS DE COMPROBACIONES ===================
 
 
-    
+	    boolean existsByUsername(String username);
+	    
+	    
+	    boolean existsByEmail(String email);
+
+
 }

@@ -9,15 +9,16 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class LoginUsuarioDTO {
 	
-		@NotBlank
-	    private String username;
-	    
-		@NotBlank
-	    private String password;
+    @NotBlank
+    private String username;
+    
+    @NotBlank
+    private String password;
 
-		
+   
 }
+

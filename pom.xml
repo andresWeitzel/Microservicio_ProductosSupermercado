@@ -39,6 +39,8 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 		</dependency>
+		
+	
 
 		<!-- CONVERTIR OBJETOS JAVA EN OBJETOS JSON -->
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
@@ -96,7 +98,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.22</version>
 			<scope>provided</scope>
 		</dependency>
 

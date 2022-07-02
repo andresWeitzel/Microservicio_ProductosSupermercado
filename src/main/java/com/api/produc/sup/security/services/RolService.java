@@ -10,6 +10,7 @@ import com.api.produc.sup.security.entities.Rol;
 import com.api.produc.sup.security.enums.TipoRol;
 import com.api.produc.sup.security.repositories.I_RolRepository;
 
+
 @Service
 @Transactional
 public class RolService {

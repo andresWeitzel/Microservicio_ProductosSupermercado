@@ -192,5 +192,4 @@ public class UsuarioService {
 	public boolean existsByEmail(String email) {
 		return iUsuarioRepository.existsByEmail(email);
 	}
-
 }

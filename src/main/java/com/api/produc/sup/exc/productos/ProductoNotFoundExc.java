@@ -1,3 +1,4 @@
+
 package com.api.produc.sup.exc.productos;
 
 public class ProductoNotFoundExc extends RuntimeException{
@@ -25,3 +26,5 @@ public class ProductoNotFoundExc extends RuntimeException{
 
 
 }
+
+

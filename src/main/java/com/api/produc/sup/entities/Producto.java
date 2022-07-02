@@ -1,6 +1,5 @@
 package com.api.produc.sup.entities;
 
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Check;
-import org.hibernate.annotations.GenericGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,11 +20,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Producto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@GenericGenerator(name="system-uuid", strategy = "org.hibernate.id.UUIDGenerator")
-	@Column(name = "id")
-	private UUID id;
+	   @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+		@Column(name = "id")
+	private long id;
 
 	@Column(name = "codigo", nullable=false, length=255, unique=true)
 	private String codigo;
@@ -57,3 +53,4 @@ public class Producto {
 	private int stock;
 
 }
+
