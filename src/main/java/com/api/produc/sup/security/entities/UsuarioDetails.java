@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UsuarioImplements implements UserDetails {
+public class UsuarioDetails implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -32,10 +32,10 @@ public class UsuarioImplements implements UserDetails {
  * @param usuario
  * @return
  */
-	public static UsuarioImplements build(Usuario usuario) {
+	public static UsuarioDetails build(Usuario usuario) {
 		List<GrantedAuthority> authorities = usuario.getRoles().stream()
 				.map(rol -> new SimpleGrantedAuthority(rol.getRol().name())).collect(Collectors.toList());
-		return new UsuarioImplements(usuario.getNombre(), usuario.getUsername(), usuario.getPassword()
+		return new UsuarioDetails(usuario.getNombre(), usuario.getUsername(), usuario.getPassword()
 				, usuario.getEmail(),authorities);
 	}
 

@@ -1,4 +1,4 @@
-package com.api.produc.sup.security.repository;
+package com.api.produc.sup.security.repositories;
 
 import java.util.Optional;
 
@@ -10,5 +10,7 @@ import com.api.produc.sup.security.enums.TipoRol;
 
 @Repository
 public interface I_RolRepository extends JpaRepository<Rol, Integer> {
+	
+	
     Optional<Rol> findByRol(TipoRol rol);
 }

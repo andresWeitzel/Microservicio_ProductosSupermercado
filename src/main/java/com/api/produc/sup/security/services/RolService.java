@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.api.produc.sup.security.entities.Rol;
 import com.api.produc.sup.security.enums.TipoRol;
-import com.api.produc.sup.security.repository.I_RolRepository;
+import com.api.produc.sup.security.repositories.I_RolRepository;
 
 @Service
 @Transactional

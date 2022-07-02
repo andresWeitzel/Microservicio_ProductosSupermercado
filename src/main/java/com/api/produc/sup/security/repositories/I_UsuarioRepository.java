@@ -1,4 +1,4 @@
-package com.api.produc.sup.security.repository;
+package com.api.produc.sup.security.repositories;
 
 
 import java.io.Serializable;
@@ -37,10 +37,16 @@ public interface I_UsuarioRepository extends JpaRepository<Usuario, Serializable
 	public Page<Usuario> findByEmail(String email, Pageable pageable);
 	
 	
+	public Page<Usuario> findAll(Pageable pageable);
+
+	
+	
 	// ============= MÉTODOS DE COMPROBACIONES ===================
 
 
     boolean existsByUsername(String username);
+    
+    
     boolean existsByEmail(String email);
 
 

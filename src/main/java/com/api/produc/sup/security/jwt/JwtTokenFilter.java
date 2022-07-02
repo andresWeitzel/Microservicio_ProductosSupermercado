@@ -15,7 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.api.produc.sup.security.services.UserDetailsServiceImpl;
+import com.api.produc.sup.security.services.UsuarioDetailsService;
 
 
 public class JwtTokenFilter extends OncePerRequestFilter {
@@ -26,7 +26,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     JwtProvider jwtProvider;
 
     @Autowired
-    UserDetailsServiceImpl userDetailsService;
+    UsuarioDetailsService userDetailsService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain filterChain) throws ServletException, IOException {

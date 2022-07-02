@@ -1,26 +1,23 @@
 package com.api.produc.sup.security.dto;
 
+
 import javax.validation.constraints.NotBlank;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LoginUsuarioDTO {
-	 @NotBlank
-	    private String nombreUsuario;
-	    @NotBlank
+	
+		@NotBlank
+	    private String username;
+	    
+		@NotBlank
 	    private String password;
 
-	    public String getNombreUsuario() {
-	        return nombreUsuario;
-	    }
-
-	    public void setNombreUsuario(String nombreUsuario) {
-	        this.nombreUsuario = nombreUsuario;
-	    }
-
-	    public String getPassword() {
-	        return password;
-	    }
-
-	    public void setPassword(String password) {
-	        this.password = password;
-	    }
+		
 }

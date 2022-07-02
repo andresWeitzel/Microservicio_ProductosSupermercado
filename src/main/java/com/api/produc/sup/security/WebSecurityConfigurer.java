@@ -16,17 +16,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.api.produc.sup.security.jwt.JwtEntryPoint;
 import com.api.produc.sup.security.jwt.JwtTokenFilter;
-import com.api.produc.sup.security.services.UserDetailsServiceImpl;
+import com.api.produc.sup.security.services.UsuarioDetailsService;
 
 
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class MainSecurity extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UserDetailsServiceImpl userDetailsService;
+    UsuarioDetailsService userDetailsService;
 
     @Autowired
     JwtEntryPoint jwtEntryPoint;
@@ -61,7 +61,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/api/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)

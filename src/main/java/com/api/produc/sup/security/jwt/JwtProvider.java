@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import com.api.produc.sup.security.entities.UsuarioImplements;
+import com.api.produc.sup.security.entities.UsuarioDetails;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -28,7 +28,7 @@ public class JwtProvider {
     private int expiration;
 
     public String generateToken(Authentication authentication){
-        UsuarioImplements usuarioPrincipal = (UsuarioImplements) authentication.getPrincipal();
+        UsuarioDetails usuarioPrincipal = (UsuarioDetails) authentication.getPrincipal();
         return Jwts.builder().setSubject(usuarioPrincipal.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(new Date().getTime() + expiration * 1000))

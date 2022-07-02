@@ -1,8 +1,6 @@
-package com.api.produc.sup.controllers;
+package com.api.produc.sup.security.controllers;
 
-/*
 
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.rest.produc.sup.entities.Usuario;
-import com.api.rest.produc.sup.services.UsuarioService;
+import com.api.produc.sup.security.entities.Usuario;
+import com.api.produc.sup.security.services.UsuarioService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -96,7 +94,7 @@ public class UsuarioController {
 			@ApiResponse(responseCode = "404", description = "La Eliminación del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> deleteUsuario(@RequestBody UUID id) {
+	public ResponseEntity<?> deleteUsuario(@RequestBody long id) {
 
 		try {
 			usuarioService.deleteUsuario(id);
@@ -111,7 +109,7 @@ public class UsuarioController {
 	
 	
 	// =================
-	// ===== GETALL ====
+	// ===== GET ALL ====
 	// =================
 	@Operation(summary = "Listado Paginado de Usuarios")
 	@ApiResponses(value = {
@@ -123,7 +121,7 @@ public class UsuarioController {
 	@GetMapping("/listado")
 	public Page<Usuario> getAllUsuario(Pageable pageable) {
 
-		return usuarioService.findAllUsuario(pageable);
+		return usuarioService.getAllUsuario(pageable);
 
 	}
 
@@ -131,4 +129,3 @@ public class UsuarioController {
 
 
 
-*/
