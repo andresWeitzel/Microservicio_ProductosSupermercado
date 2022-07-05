@@ -108,7 +108,7 @@
 
 #### Sección 3) Creación y Configuración de Clases Entities/Models
   
-   - [Paso 6) Seguir paso a paso la respectiva sección de la guía de otra api (Api_Microelectronica_Oracle) (Click) ](#https://github.com/andresWeitzel/ApiRest_Microelectronica_SpringBoot_Oracle)
+   - Paso 6) Seguir paso a paso la respectiva sección de la guía de la siguiente api: https://github.com/andresWeitzel/ApiRest_Microelectronica_SpringBoot_Oracle
   
   
 #### Sección 4) Creación y Configuración de las Interfaces Repositories  
