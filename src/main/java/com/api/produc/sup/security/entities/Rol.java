@@ -30,14 +30,7 @@ public class Rol {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-   
-    /*
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Type(type = "pgsql_enum")
-    @Column(columnDefinition = "rol")
-    private TipoRol rol;
-*/
+
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "rol")

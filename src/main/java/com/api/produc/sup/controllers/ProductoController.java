@@ -51,6 +51,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "La Inserción del Producto no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@PostMapping("/")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> addProducto(@RequestBody Producto producto) {
 
 		try {
@@ -76,6 +77,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "La Actualización del Producto no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@PutMapping("/")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> updateProducto(@RequestBody Producto producto) {
 
 		try {
@@ -115,7 +117,7 @@ public class ProductoController {
 	}
 
 	// =================
-	// ===== GETALL ====
+	// ===== GET ALL ====
 	// =================
 	@Operation(summary = "Listado Paginado de Productos")
 	@ApiResponses(value = {
@@ -125,7 +127,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/listado")
-	//@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getAllProducto(Pageable pageable) {
 
 		return productoService.findAllProducto(pageable);
@@ -148,7 +150,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Producto según su ID no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/id/{id}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Producto getById(@PathVariable("id") long id) {
 		return productoService.findById(id);
 	}
@@ -165,7 +167,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su CODIGO no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/codigo/{codigo}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByCodigo(@PathVariable("codigo") String codigo, Pageable pageable) {
 		return productoService.findByCodigo(codigo, pageable);
 	}
@@ -182,7 +184,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su IMAGEN no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/imagen/{imagen}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByImagen(@PathVariable("imagen") String imagen, Pageable pageable) {
 		return productoService.findByImagen(imagen, pageable);
 	}
@@ -199,7 +201,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su NOMBRE no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/nombre/{nombre}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByNombre(@PathVariable("nombre") String nombre, Pageable pageable) {
 		return productoService.findByNombre(nombre, pageable);
 
@@ -217,7 +219,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su MARCA no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/marca/{marca}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByMarca(@PathVariable("marca") String marca, Pageable pageable) {
 		return productoService.findByMarca(marca, pageable);
 	}
@@ -234,7 +236,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su TIPO no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/tipo/{tipo}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByTipo(@PathVariable("tipo") String tipo, Pageable pageable) {
 		return productoService.findByTipo(tipo, pageable);
 	}
@@ -251,7 +253,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su GRUPO no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/grupo/{grupo}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByGrupo(@PathVariable("grupo") String grupo, Pageable pageable) {
 		return productoService.findByGrupo(grupo, pageable);
 	}
@@ -268,7 +270,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su PESO no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/peso/{peso}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByPeso(@PathVariable("peso") double peso, Pageable pageable) {
 		return productoService.findByPeso(peso, pageable);
 	}
@@ -285,7 +287,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su PRECIO_UNIDAD no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/precio-unidad/{precioUnidad}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByPrecioUnidad(@PathVariable("precioUnidad") double precioUnidad, Pageable pageable) {
 		return productoService.findByPrecioUnidad(precioUnidad, pageable);
 	}
@@ -303,7 +305,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos o Producto según su STOCK no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@GetMapping("/stock/{stock}")
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	public Page<Producto> getByStock(@PathVariable("stock") int stock, Pageable pageable) {
 		return productoService.findByStock(stock, pageable);
 	}
