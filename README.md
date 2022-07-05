@@ -113,18 +113,18 @@
   
 #### Sección 4) Creación y Configuración de las Interfaces Repositories  
 
-   - [Paso 7) Seguir paso a paso la respectiva sección de la guía de la siguiente api : https://github.com/andresWeitzel/ApiRest_Microelectronica_SpringBoot_Oracle
-
+   - Paso 7) Seguir paso a paso la respectiva sección de la guía de la siguiente api: https://github.com/andresWeitzel/ApiRest_Microelectronica_SpringBoot_Oracle
+  
 
 #### Sección 5) Creación y Configuración de los Services y Excepciones de Clase
 
-     - [Paso 8) Seguir paso a paso la respectiva sección de la guía de la siguiente api : https://github.com/andresWeitzel/ApiRest_Microelectronica_SpringBoot_Oracle
-
+   - Paso 8) Seguir paso a paso la respectiva sección de la guía de la siguiente api: https://github.com/andresWeitzel/ApiRest_Microelectronica_SpringBoot_Oracle
+  
 
 #### Sección 6) Creación y Configuración de los Controllers
 	
-  - [Paso 9) Seguir paso a paso la respectiva sección de la guía de la siguiente api : https://github.com/andresWeitzel/ApiRest_Microelectronica_SpringBoot_Oracle
-
+   - Paso 9) Seguir paso a paso la respectiva sección de la guía de la siguiente api: https://github.com/andresWeitzel/ApiRest_Microelectronica_SpringBoot_Oracle
+  
 
 
 #### Sección 8) Prueba de los Servicios Rest Desarrollados
