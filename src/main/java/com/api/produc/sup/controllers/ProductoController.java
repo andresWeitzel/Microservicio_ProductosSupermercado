@@ -1,8 +1,6 @@
 
-
 package com.api.produc.sup.controllers;
 
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -76,12 +74,12 @@ public class ProductoController {
 			@ApiResponse(responseCode = "400", description = "No se pudo Actualizar el Producto. Comprobar la Solicitud", content = @Content),
 			@ApiResponse(responseCode = "404", description = "La Actualización del Producto no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
-	@PutMapping("/")
+	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public ResponseEntity<?> updateProducto(@RequestBody Producto producto) {
+	public ResponseEntity<?> updateProducto(@PathVariable("id") long id, @RequestBody Producto producto) {
 
 		try {
-			productoService.updateProducto(producto);
+			productoService.updateProducto(id, producto);
 
 			return new ResponseEntity<Producto>(producto, HttpStatus.OK);
 
@@ -103,7 +101,7 @@ public class ProductoController {
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
 	@DeleteMapping("/{id}")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public ResponseEntity<?> deleteProducto(@RequestBody UUID id) {
+	public ResponseEntity<?> deleteProducto(@PathVariable("id") long id) {
 
 		try {
 			productoService.deleteProducto(id);
@@ -131,6 +129,24 @@ public class ProductoController {
 	public Page<Producto> getAllProducto(Pageable pageable) {
 
 		return productoService.findAllProducto(pageable);
+
+	}
+
+	// =========================
+	// ===== GET ALL FILTER ====
+	// ========================
+	@Operation(summary = "Listado Paginado de Productos Filtrados")
+	@ApiResponses(value = {
+			@ApiResponse(responseCode = "200", description = "Se ha Traído el Listado de Productos Filtrados Correctamente", content = {
+					@Content(mediaType = "application/json") }),
+			@ApiResponse(responseCode = "400", description = "No se pudo traer el Listado de Productos Filtrados. Comprobar la Solicitud", content = @Content),
+			@ApiResponse(responseCode = "404", description = "El Listado de Productos Filtrados no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
+			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
+	@GetMapping("/listado-filter")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+	public Page<Producto> getAllFilterProducto(String filtro,Pageable pageable) {
+
+		return productoService.findAllFilterProducto(filtro,pageable);
 
 	}
 
@@ -291,8 +307,7 @@ public class ProductoController {
 	public Page<Producto> getByPrecioUnidad(@PathVariable("precioUnidad") double precioUnidad, Pageable pageable) {
 		return productoService.findByPrecioUnidad(precioUnidad, pageable);
 	}
-	
-	
+
 	// ======================
 	// ===== GET BY STOCK ===
 	// ======================
@@ -311,4 +326,3 @@ public class ProductoController {
 	}
 
 }
-

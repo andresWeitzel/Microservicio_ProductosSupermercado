@@ -25,7 +25,7 @@ public class JwtEntryPoint implements AuthenticationEntryPoint {
         response.resetBuffer();
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         response.setHeader("Content-Type", "application/json");
-        response.getOutputStream().print("{\"status\":401,\"error\":\"Unauthorized\",\"message\":\"No esta autorizado\"}");
+        response.getOutputStream().write("{\"status\":401,\"error\":\"Unauthorized\",\"message\":\"Credenciales No Válidas. No está autorizado\"}".getBytes("UTF-8"));
         response.flushBuffer();
     }
 }

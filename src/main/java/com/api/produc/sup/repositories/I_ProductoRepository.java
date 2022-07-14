@@ -45,7 +45,14 @@ public interface I_ProductoRepository extends JpaRepository<Producto, Serializab
 	public abstract Page<Producto> findByPrecioUnidad(double precioUnidad, Pageable pageable);
 
 	public abstract Page<Producto> findByStock(int stock, Pageable pageable);
+	
+	public abstract Page<Producto> findAll(Pageable pageable);
 
+	
+	// ============= MÉTODOS DE BÚSQUEDA CON FILTRO ===================
+	
+	@Query("select c from Producto c where concat(c.id, c.codigo, c.imagen ,c.nombre, c.marca, c.tipo, c.grupo) like %?1%")
+	public abstract Page<Producto> findAll(String filtro, Pageable pageable);
 }
 
 

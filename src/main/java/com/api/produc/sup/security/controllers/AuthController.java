@@ -52,18 +52,18 @@ public class AuthController {
 	JwtProvider jwtProvider;
 
 	@PostMapping("/signin")
-	public ResponseEntity<?> nuevo(@Valid @RequestBody SigninUsuarioDTO signinUsuario, BindingResult bindingResult) {
+	public ResponseEntity<?> signin(@Valid @RequestBody SigninUsuarioDTO signinUsuario, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
-			return new ResponseEntity<String>("Campos o Email Inválidos", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity("Campos o Email Inválidos", HttpStatus.BAD_REQUEST);
 		}
 
 		if (usuarioService.existsByUsername(signinUsuario.getUsername())) {
-			return new ResponseEntity<String>("El Username del Usuario ya existe en la DB", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity("El Username del Usuario ya existe en la DB", HttpStatus.BAD_REQUEST);
 		}
 
 		if (usuarioService.existsByEmail(signinUsuario.getEmail())) {
-			 return new ResponseEntity<String>("El Email del Usuario ya existe en la DB", HttpStatus.BAD_REQUEST);
+			 return new ResponseEntity("El Email del Usuario ya existe en la DB", HttpStatus.BAD_REQUEST);
 		}
 			
 		Usuario usuario = new Usuario(signinUsuario.getNombre(), signinUsuario.getUsername()
@@ -86,7 +86,7 @@ public class AuthController {
 		
 		usuarioService.addUsuario(usuario);
 		
-		return new ResponseEntity<String>("Usuario Insertado Correctamente", HttpStatus.CREATED);
+		return new ResponseEntity("Usuario Insertado Correctamente", HttpStatus.CREATED);
 	}
 
 	@PostMapping("/login")

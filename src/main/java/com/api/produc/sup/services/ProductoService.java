@@ -1,5 +1,4 @@
 
-
 package com.api.produc.sup.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,11 +48,14 @@ public class ProductoService {
 	// ==================
 	// ===== UPDATE =====
 	// ==================
-	public void updateProducto(Producto producto) {
+	public void updateProducto(long id, Producto producto) {
 		try {
 			if (producto == null) {
 				logger.error("ERROR updateProducto : EL PRODUCTO " + producto + " ES NULO!!");
 				throw new ProductoNotFoundExc("EL PRODUCTO ES NULO");
+			}else if(id <= 0){
+				logger.error("ERROR updateProducto : EL ID DEL PRODUCTO " + producto + " NO ES VÁLIDO!!");
+				throw new ProductoIdMismatchExc("ID INVÁLIDO");
 			} else {
 				iProductoRepository.save(producto);
 			}
@@ -67,10 +69,10 @@ public class ProductoService {
 	// ==================
 	// ===== DELETE =====
 	// ==================
-	public void deleteProducto(UUID id) {
+	public void deleteProducto(long id) {
 		try {
 
-			if (id == null) {
+			if (id <= 0) {
 				logger.error("ERROR deleteProducto : EL PRODUCTO CON EL ID " + id + " NO ES VÁLIDO!!");
 				throw new ProductoIdMismatchExc("EL PRODUCTO CON EL ID NO ES VÁLIDO");
 			} else {
@@ -95,8 +97,25 @@ public class ProductoService {
 			return iProductoRepository.findAll(pageable);
 		} catch (Exception e) {
 
-			logger.error("ERROR getAllProducto : NO SE HAN LISTADO LOS PRODUCTOS. CAUSADO POR " + e);
+			logger.error("ERROR findAllProducto : NO SE HAN LISTADO LOS PRODUCTOS. CAUSADO POR " + e);
 			throw new ProductoNotFoundExc("NO SE PUDO ENCONTRAR EL LISTADO DE PRODUCTOS ", e);
+		}
+	}
+
+	// ==========================
+	// ===== GET ALL FILTER =====
+	// ==========================
+	// ------- LISTADO CON FILTER PAGINADO ---------
+	public Page<Producto> findAllFilterProducto(String filter, Pageable pageable) {
+
+		try {
+			return iProductoRepository.findAll(filter, pageable);
+			
+		} catch (Exception e) {
+
+			logger.error(
+					"ERROR findAllFilterProducto : NO SE HAN LISTADO LOS PRODUCTOS FILTRADOS. CAUSADO POR " + e);
+			throw new ProductoNotFoundExc("NO SE PUDO ENCONTRAR EL LISTADO DE PRODUCTOS FILTRADO ", e);
 		}
 	}
 
@@ -109,7 +128,7 @@ public class ProductoService {
 	public Producto findById(long id) {
 		try {
 
-			if (id <= 0 ) {
+			if (id <= 0) {
 
 				logger.error("ERROR finById : EL PRODUCTO CON EL ID " + id + " NO ES VÁLIDO!!");
 
@@ -234,7 +253,7 @@ public class ProductoService {
 	// ------ PESO --------
 	public Page<Producto> findByPeso(double peso, Pageable pageable) {
 		try {
-			
+
 			if (peso <= 0.0) {
 
 				logger.error("ERROR finByPeso : EL PRODUCTO SEGÚN EL PESO " + peso + " NO ES VÁLIDO!!");
@@ -260,7 +279,8 @@ public class ProductoService {
 		try {
 			if (precioUnidad <= 0.0) {
 
-				logger.error("ERROR finByPrecioUnidad : EL PRODUCTO CON EL PRECIO POR UNIDAD " + precioUnidad + " NO ES VÁLIDO!!");
+				logger.error("ERROR finByPrecioUnidad : EL PRODUCTO CON EL PRECIO POR UNIDAD " + precioUnidad
+						+ " NO ES VÁLIDO!!");
 
 				throw new ProductoNotFoundExc("EL PRODUCTO SEGÚN EL PRECIO POR UNIDAD NO ES VÁLIDO");
 
@@ -269,25 +289,23 @@ public class ProductoService {
 				return iProductoRepository.findByPrecioUnidad(precioUnidad, pageable);
 
 			}
-		
+
 		} catch (Exception e) {
 			logger.error(
 					"ERROR findByPrecioUnidad : NO SE HA ENCONTRADO EL PRODUCTO CON EL PRECIO POR UNIDAD SOLICITADO. CAUSADO POR "
 							+ e);
-			throw new ProductoNotFoundExc("NO SE PUDO ENCONTRAR EL PRODUCTO CON EL PRECIO POR UNIDAD SOLICITADO ",
-					e);
+			throw new ProductoNotFoundExc("NO SE PUDO ENCONTRAR EL PRODUCTO CON EL PRECIO POR UNIDAD SOLICITADO ", e);
 		}
 
 	}
-	
-	
+
 	// ===============
 	// ===== GET =====
 	// ===============
 	// ------ STOCK --------
 	public Page<Producto> findByStock(int stock, Pageable pageable) {
 		try {
-			
+
 			if (stock <= 0) {
 
 				logger.error("ERROR finByStock : EL PRODUCTO CON EL STOCK " + stock + " NO ES VÁLIDO!!");
@@ -298,19 +316,14 @@ public class ProductoService {
 
 				return iProductoRepository.findByStock(stock, pageable);
 
-
 			}
-		
-			
+
 		} catch (Exception e) {
 			logger.error(
-					"ERROR findByStock : NO SE HA ENCONTRADO EL PRODUCTO CON EL STOCK SOLICITADO. CAUSADO POR "
-							+ e);
-			throw new ProductoNotFoundExc("NO SE PUDO ENCONTRAR EL PRODUCTO CON EL STOCK  SOLICITADO ",
-					e);
+					"ERROR findByStock : NO SE HA ENCONTRADO EL PRODUCTO CON EL STOCK SOLICITADO. CAUSADO POR " + e);
+			throw new ProductoNotFoundExc("NO SE PUDO ENCONTRAR EL PRODUCTO CON EL STOCK  SOLICITADO ", e);
 		}
 
 	}
 
 }
-
