@@ -51,7 +51,7 @@ public interface I_ProductoRepository extends JpaRepository<Producto, Serializab
 	
 	// ============= MÉTODOS DE BÚSQUEDA CON FILTRO ===================
 	
-	@Query("select c from Producto c where concat(c.id, c.codigo, c.imagen ,c.nombre, c.marca, c.tipo, c.grupo) like %?1%")
+	@Query("select c from Producto c where concat( lower(c.codigo), lower(c.imagen) , lower(c.nombre), lower(c.marca), lower(c.tipo), lower(c.grupo) ) like lower( concat ( '%', ?1, '%'))")
 	public abstract Page<Producto> findAll(String filtro, Pageable pageable);
 }
 

@@ -142,9 +142,9 @@ public class ProductoController {
 			@ApiResponse(responseCode = "400", description = "No se pudo traer el Listado de Productos Filtrados. Comprobar la Solicitud", content = @Content),
 			@ApiResponse(responseCode = "404", description = "El Listado de Productos Filtrados no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
 			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
-	@GetMapping("/listado-filter")
+	@GetMapping("/listado-filter/{filtro}")
 	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-	public Page<Producto> getAllFilterProducto(String filtro,Pageable pageable) {
+	public Page<Producto> getAllFilterProducto(@PathVariable("filtro") String filtro, Pageable pageable) {
 
 		return productoService.findAllFilterProducto(filtro,pageable);
 
