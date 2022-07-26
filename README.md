@@ -4,6 +4,34 @@
 
 </br>
 
+### EndPoints y Recursos. Vista Swagger UI
+
+### EndPoints
+* http://localhost:8098/api/v1/productos/
+* http://localhost:8098/api/v1/admin/usuarios/
+* http://localhost:8098/api/v1/auth/
+
+* Los recursos de cada endpoint se muestran en las siguientes imágenes respectivas a cada controller
+
+</br>
+
+### Recursos por Endpoint
+
+#### Producto Controller. 
+![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/productoController.png)
+
+
+#### Usuario Controller. 
+![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/usuarioController.png)
+
+
+#### Auth Controller. 
+![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/authController.png)
+
+<hr>
+
+
+
 * La Api Rest implementa todas las Operaciones CRUD, tanto para productos como para usuarios. 
 * Se separa la capa de seguridad para la autenticación , implementando Spring Security y JWT. Además de realizar las operaciones CRUD para usuarios se aplica login y signin para la capa de presentación.
 * También se desarrollan los métodos de búsquedas independientes de tipo Like para todos los campos, tanto de usuarios como productos.
@@ -17,10 +45,20 @@
 
 * Repositorio Base de Datos: https://github.com/andresWeitzel/Microdb_productos_supermercado_PostgreSQL
 * Repositorio App_MicroFrontEnd_Productos : https://github.com/andresWeitzel/App_MicroFrontEnd_Productos_SpringBoot_Docker_Kubernate_PostgreSQL
-
-
+* PlayList Proyecto : https://www.youtube.com/playlist?list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L
 
 </br>
+
+### Prueba de Funcionalidad de la ApiRest
+
+* AuthController : https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2
+
+* UsuarioController : https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2
+
+* ProductoController : https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3
+
+</br>
+
 
 ### Tecnologías Implementadas
 
@@ -68,14 +106,14 @@
 </hr>
 
 ### Doc No Oficial Recomendada
-* Implementación Spring Security : https://www.youtube.com/watch?v=tDZPdovCH4I
 * Config open-api y Swagger: https://www.baeldung.com/spring-rest-openapi-documentation
-* Tutorial doc open-api : https://www.youtube.com/watch?v=iaVBleTf88U
 * Anotation open-api : https://github.com/dailycodebuffer/Spring-MVC-Tutorials/blob/master/openapi-documentation/src/main/java/com/dailycodebuffer/controller/BookController.java
 * Códigos HTTP de respuestas desarrollar en apis :https://www.ibm.com/docs/es/odm/8.5.1?topic=api-rest-response-codes-error-messages
 
 ### Doc Gráfica No Oficial Recomendada
 * Implementación de Spring Security y JWT Youtube : https://www.youtube.com/watch?v=_91iKzsKdqY&list=PL4bT56Uw3S4z9rtwwGvuk1Mjhu5sdLSwX&index=12
+* Implementación Spring Security : https://www.youtube.com/watch?v=tDZPdovCH4I
+* Tutorial doc open-api : https://www.youtube.com/watch?v=iaVBleTf88U
 
 
 
