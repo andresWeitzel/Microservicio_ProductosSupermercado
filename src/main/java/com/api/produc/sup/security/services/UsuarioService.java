@@ -1,15 +1,22 @@
 package com.api.produc.sup.security.services;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.api.produc.sup.security.dto.SigninUsuarioDTO;
+import com.api.produc.sup.security.entities.Rol;
 import com.api.produc.sup.security.entities.Usuario;
+import com.api.produc.sup.security.enums.TipoRol;
 import com.api.produc.sup.security.exc.usuario.UsuarioIdMismatchExc;
 import com.api.produc.sup.security.exc.usuario.UsuarioNotFoundExc;
 import com.api.produc.sup.security.repositories.I_UsuarioRepository;
@@ -21,10 +28,48 @@ public class UsuarioService {
 	@Autowired
 	I_UsuarioRepository iUsuarioRepository;
 
+	@Autowired
+	RolService rolService;
+
 	// =============== LOGS ====================
 	private static final Logger logger = org.apache.logging.log4j.LogManager.getLogger(UsuarioService.class);
 
 	// =============== MÉTODOS CRUD ====================
+
+	// ==================
+	// ===== INSERT =====
+	// ==================
+	public void addUsuarioDTO(SigninUsuarioDTO usuarioDTO) {
+		try {
+			if (usuarioDTO == null) {
+				logger.error("ERROR addUsuario : EL USUARIO " + usuarioDTO + " ES NULO!!");
+				throw new UsuarioNotFoundExc("EL USUARIO ES NULO");
+			} else {
+
+				Usuario usuarioEncode = new Usuario(usuarioDTO.getNombre(), usuarioDTO.getUsername(),
+						new BCryptPasswordEncoder().encode(usuarioDTO.getPassword()), usuarioDTO.getEmail());
+
+				Set<Rol> roles = new HashSet<>();
+
+				if (usuarioDTO.getRoles().contains("user")) {
+					roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
+				}
+
+				if (usuarioDTO.getRoles().contains("admin")) {
+					roles.add(rolService.getByRol(TipoRol.ROLE_ADMIN).get());
+					roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
+				}
+
+				usuarioEncode.setRoles(roles);
+
+				iUsuarioRepository.save(usuarioEncode);
+			}
+
+		} catch (Exception e) {
+			logger.error("ERROR addUsuario : EL USUARIO " + usuarioDTO + " NO SE HA INSERTADO EN LA DB!!");
+			throw new UsuarioNotFoundExc("NO SE PUDO AGREGAR EL USUARIO ", e, false, true);
+		}
+	}
 
 	// ==================
 	// ===== INSERT =====
@@ -35,6 +80,8 @@ public class UsuarioService {
 				logger.error("ERROR addUsuario : EL USUARIO " + usuario + " ES NULO!!");
 				throw new UsuarioNotFoundExc("EL USUARIO ES NULO");
 			} else {
+
+	
 				iUsuarioRepository.save(usuario);
 			}
 
@@ -47,18 +94,43 @@ public class UsuarioService {
 	// ==================
 	// ===== UPDATE =====
 	// ==================
-	public void updateUsuario(Usuario usuario) {
+	public void updateUsuario(long id, SigninUsuarioDTO usuarioDTO) {
 		try {
-			if (usuario == null) {
-				logger.error("ERROR updateUsuario : EL USUARIO " + usuario + " ES NULO!!");
+			if (usuarioDTO == null) {
+				logger.error("ERROR updateUsuario : EL USUARIO " + usuarioDTO + " ES NULO!!");
 				throw new UsuarioNotFoundExc("EL USUARIO ES NULO");
 			} else {
-				iUsuarioRepository.save(usuario);
 
+			
+				Usuario usuarioEncode = new Usuario(id, usuarioDTO.getNombre(), usuarioDTO.getUsername(),
+						new BCryptPasswordEncoder().encode(usuarioDTO.getPassword()), usuarioDTO.getEmail());
+
+				
+				
+				Set<Rol> roles = new HashSet<>();
+
+				if (usuarioDTO.getRoles().contains("user")) {
+					roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
+				}
+
+				if (usuarioDTO.getRoles().contains("admin")) {
+					roles.add(rolService.getByRol(TipoRol.ROLE_ADMIN).get());
+					roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
+				}
+
+				usuarioEncode.setRoles(roles);
+
+				
+				//Usuario usuarioEdit = iUsuarioRepository.getById(id);
+
+				//usuarioEdit = usuarioEncode;
+				
+				
+				iUsuarioRepository.save(usuarioEncode);
 			}
 
 		} catch (Exception e) {
-			logger.error("ERROR updateUsuario : EL USUARIO " + usuario + " NO SE HA ACTUALIZADO EN LA DB!!");
+			logger.error("ERROR updateUsuario : EL USUARIO " + usuarioDTO + " NO SE HA ACTUALIZADO EN LA DB!!");
 			throw new UsuarioNotFoundExc("NO SE PUDO ACTUALIZAR EL USUARIO ", e, false, true);
 		}
 	}

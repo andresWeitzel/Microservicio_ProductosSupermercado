@@ -63,39 +63,43 @@ public class AuthController {
 		}
 
 		if (usuarioService.existsByEmail(signinUsuario.getEmail())) {
-			 return new ResponseEntity("El Email del Usuario ya existe en la DB", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity("El Email del Usuario ya existe en la DB", HttpStatus.BAD_REQUEST);
 		}
-			
-		Usuario usuario = new Usuario(signinUsuario.getNombre(), signinUsuario.getUsername()
-				, passwordEncoder.encode(signinUsuario.getPassword()),signinUsuario.getEmail());
-		
-		Set<Rol> roles = new HashSet<>();
-		
-		if(signinUsuario.getRoles().contains("user") 
-				|| signinUsuario.getRoles().contains("admin") 
-				|| signinUsuario.getRoles().contains("")) {
-    		
-    		roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
-    	}
+		if(signinUsuario.getNombre().isBlank() 
+				|| signinUsuario.getUsername().isBlank() 
+				|| signinUsuario.getPassword().isBlank()
+				|| signinUsuario.getPassword().isBlank()
+				|| signinUsuario.getEmail().isBlank())
+		{
+			return new ResponseEntity("No se permiten campos vacios", HttpStatus.BAD_REQUEST);
+		}
 
+		Usuario usuario = new Usuario(signinUsuario.getNombre(), signinUsuario.getUsername(),
+				passwordEncoder.encode(signinUsuario.getPassword()), signinUsuario.getEmail());
+
+		Set<Rol> roles = new HashSet<>();
+
+		
+		roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
+
+		
 		if (signinUsuario.getRoles().contains("admin")) {
 			roles.add(rolService.getByRol(TipoRol.ROLE_ADMIN).get());
 		}
-			
+
 		usuario.setRoles(roles);
-		
+
 		usuarioService.addUsuario(usuario);
-		
+
 		return new ResponseEntity("Usuario Insertado Correctamente", HttpStatus.CREATED);
 	}
 
 	@PostMapping("/login")
 	public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuarioDTO loginUsuario, BindingResult bindingResult) {
-		
+
 		if (bindingResult.hasErrors()) {
 			return new ResponseEntity("Campos Inválidos", HttpStatus.BAD_REQUEST);
 		}
-			
 
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginUsuario.getUsername(), loginUsuario.getPassword()));

@@ -35,6 +35,13 @@ public class ProductoService {
 			if (producto == null) {
 				logger.error("ERROR addProducto : EL PRODUCTO " + producto + " ES NULO!!");
 				throw new ProductoNotFoundExc("EL PRODUCTO ES NULO");
+			}else if( producto.getCodigo() == "" || producto.getImagen() == ""
+					|| producto.getNombre() == "" || producto.getMarca() == "" || producto.getTipo() == ""
+					|| producto.getGrupo() == "" || producto.getPeso() == 0.0 || producto.getPrecioUnidad() == 0.0
+					|| producto.getStock() == 0.0) {
+				logger.error("ERROR addProducto : LOS VALORES DE LOS CAMPOS DEL PRODUCTO " + producto + " NO SON VÁLIDOS!!");
+				throw new ProductoNotFoundExc("VALORES DE CAMPOS NO VÁLIDOS");
+				
 			} else {
 				iProductoRepository.save(producto);
 			}
@@ -56,8 +63,28 @@ public class ProductoService {
 			}else if(id <= 0){
 				logger.error("ERROR updateProducto : EL ID DEL PRODUCTO " + producto + " NO ES VÁLIDO!!");
 				throw new ProductoIdMismatchExc("ID INVÁLIDO");
+				
+			}else if( producto.getCodigo() == "" || producto.getImagen() == ""
+					|| producto.getNombre() == "" || producto.getMarca() == "" || producto.getTipo() == ""
+					|| producto.getGrupo() == "" || producto.getPeso() == 0.0 || producto.getPrecioUnidad() == 0.0
+					|| producto.getStock() == 0.0) {
+				logger.error("ERROR addProducto : LOS VALORES DE LOS CAMPOS DEL PRODUCTO " + producto + " NO SON VÁLIDOS!!");
+				throw new ProductoNotFoundExc("VALORES DE CAMPOS NO VÁLIDOS");
+				
 			} else {
-				iProductoRepository.save(producto);
+				
+				Producto nuevoProducto = iProductoRepository.findById(id);
+				nuevoProducto.setCodigo(producto.getCodigo());
+				nuevoProducto.setImagen(producto.getImagen());
+				nuevoProducto.setNombre(producto.getNombre());
+				nuevoProducto.setMarca(producto.getMarca());
+				nuevoProducto.setTipo(producto.getTipo());
+				nuevoProducto.setGrupo(producto.getGrupo());
+				nuevoProducto.setPeso(producto.getPeso());
+				nuevoProducto.setPrecioUnidad(producto.getPrecioUnidad());
+				nuevoProducto.setStock(producto.getStock());
+				
+				iProductoRepository.save(nuevoProducto);
 			}
 
 		} catch (Exception e) {
