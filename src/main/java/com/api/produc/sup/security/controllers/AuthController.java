@@ -55,15 +55,15 @@ public class AuthController {
 	public ResponseEntity<?> signin(@Valid @RequestBody SigninUsuarioDTO signinUsuario, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
-			return new ResponseEntity("Campos o Email Inválidos", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("Campos o Email Inválidos!!", HttpStatus.BAD_REQUEST);
 		}
 
 		if (usuarioService.existsByUsername(signinUsuario.getUsername())) {
-			return new ResponseEntity("El Username del Usuario ya existe en la DB", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("El Username del Usuario ya existe!!", HttpStatus.BAD_REQUEST);
 		}
 
 		if (usuarioService.existsByEmail(signinUsuario.getEmail())) {
-			return new ResponseEntity("El Email del Usuario ya existe en la DB", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("El Email del Usuario ya existe!!", HttpStatus.BAD_REQUEST);
 		}
 		if(signinUsuario.getNombre().isBlank() 
 				|| signinUsuario.getUsername().isBlank() 
@@ -71,7 +71,7 @@ public class AuthController {
 				|| signinUsuario.getPassword().isBlank()
 				|| signinUsuario.getEmail().isBlank())
 		{
-			return new ResponseEntity("No se permiten campos vacios", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("No se permiten campos vacios!!", HttpStatus.BAD_REQUEST);
 		}
 
 		Usuario usuario = new Usuario(signinUsuario.getNombre(), signinUsuario.getUsername(),
@@ -91,14 +91,18 @@ public class AuthController {
 
 		usuarioService.addUsuario(usuario);
 
-		return new ResponseEntity("Usuario Insertado Correctamente", HttpStatus.CREATED);
+		return new ResponseEntity<SigninUsuarioDTO>(signinUsuario, HttpStatus.OK);
 	}
+	
+	
+	
+	
 
 	@PostMapping("/login")
-	public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuarioDTO loginUsuario, BindingResult bindingResult) {
+	public ResponseEntity<?> login(@Valid @RequestBody LoginUsuarioDTO loginUsuario, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
-			return new ResponseEntity("Campos Inválidos", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<String>("Campos Inválidos!!", HttpStatus.BAD_REQUEST);
 		}
 
 		Authentication authentication = authenticationManager.authenticate(
@@ -112,7 +116,7 @@ public class AuthController {
 
 		JwtDTO jwtDto = new JwtDTO(jwt, userDetails.getUsername(), userDetails.getAuthorities());
 
-		return new ResponseEntity(jwtDto, HttpStatus.OK);
+		return new ResponseEntity<JwtDTO>(jwtDto, HttpStatus.OK);
 	}
 
 }
