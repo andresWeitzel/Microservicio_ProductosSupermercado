@@ -9,6 +9,13 @@
 * Todas las funcionalidades tienen generación de logs en el Server para los errores y excepciones personalizadas
 * Se incluye documentación completa de la Api con open-api para la visualización con swagger-ui, las anotaciones de open-api se aplican junto con los códigos de respuesta de tipo HTTP para cada función en los respectivos controllers.
 * Se pone a disposición todos los recursos anteriores para productos y usuarios.
+* Entre Otros.
+
+</br>
+
+* Repositorio Base de Datos: https://github.com/andresWeitzel/Microdb_productos_supermercado_PostgreSQL
+* Repositorio App_MicroFrontEnd_Productos : https://github.com/andresWeitzel/App_MicroFrontEnd_Productos_SpringBoot_SpringSecurity_PostgreSQL
+* PlayList Proyecto : https://www.youtube.com/playlist?list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L
 
 
 </br>
@@ -41,11 +48,7 @@
 
 
 
-</br>
 
-* Repositorio Base de Datos: https://github.com/andresWeitzel/Microdb_productos_supermercado_PostgreSQL
-* Repositorio App_MicroFrontEnd_Productos : https://github.com/andresWeitzel/App_MicroFrontEnd_Productos_SpringBoot_Docker_Kubernate_PostgreSQL
-* PlayList Proyecto : https://www.youtube.com/playlist?list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L
 
 </br>
 
