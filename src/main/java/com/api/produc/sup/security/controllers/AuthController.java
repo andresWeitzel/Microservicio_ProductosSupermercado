@@ -1,5 +1,6 @@
 package com.api.produc.sup.security.controllers;
 
+import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -118,5 +119,21 @@ public class AuthController {
 
 		return new ResponseEntity<JwtDTO>(jwtDto, HttpStatus.OK);
 	}
+	
+	
+	
+	
+	@PostMapping("/refresh-token")
+	public ResponseEntity<?> refreshToken(@RequestBody JwtDTO jwtDto) throws ParseException{
+		
+		String token = jwtProvider.refreshToken(jwtDto);
+		
+		JwtDTO jwtRefresh = new JwtDTO(token);
+		
+		return new ResponseEntity<JwtDTO> (jwtRefresh, HttpStatus.OK);
+		
+		
+	}
+	
 
 }
