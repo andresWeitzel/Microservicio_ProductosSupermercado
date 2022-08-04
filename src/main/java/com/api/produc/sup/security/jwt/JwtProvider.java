@@ -30,12 +30,18 @@ import io.jsonwebtoken.UnsupportedJwtException;
 public class JwtProvider {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
-    @Value("${jwt.secret}")
-    private String secret;
+    
+    
+    
+    private String secret="secret";
 
-    @Value("${jwt.expiration}")
-    private int expiration;
+   
+    //private int expiration= 300000 * 1;//5min * x --> 5min
+    private int expiration= 300000 / 4;
 
+    
+    
+    
     public String generateToken(Authentication authentication){
         UsuarioDetails usuarioPrincipal = (UsuarioDetails) authentication.getPrincipal();
         
@@ -45,7 +51,6 @@ public class JwtProvider {
         		.setSubject(usuarioPrincipal.getUsername())
         	    .claim("roles", roles)
                 .setIssuedAt(new Date())
-                //.setExpiration(new Date(new Date().getTime() + expiration * 1000))
                 .setExpiration(new Date(new Date().getTime() + expiration))
                 .signWith(SignatureAlgorithm.HS512, secret.getBytes())
                 .compact();
@@ -90,7 +95,6 @@ public class JwtProvider {
          		.setSubject(username)
          	    .claim("roles", roles)
                  .setIssuedAt(new Date())
-                 //.setExpiration(new Date(new Date().getTime() + expiration * 1000))
                  .setExpiration(new Date(new Date().getTime() + expiration))
                  .signWith(SignatureAlgorithm.HS512, secret.getBytes())
                  .compact();
