@@ -62,7 +62,7 @@ public class JwtProvider {
 
     public boolean validateToken(String token){
         try {
-            Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token);
+        	Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token);
             return true;
         }catch (MalformedJwtException e){
             logger.error("token mal formado");
@@ -81,23 +81,32 @@ public class JwtProvider {
     
     public String refreshToken(JwtDTO jwtDto) throws ParseException {
     	
-    	JWT jwt = JWTParser.parse(jwtDto.getToken());
+    	try {
+        	Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(jwtDto.getToken());
+
+    	}catch(ExpiredJwtException e) {
+        	
+        	JWT jwt = JWTParser.parse(jwtDto.getToken());
+        	
+        	JWTClaimsSet claims = jwt.getJWTClaimsSet();
+        	
+        	String username = claims.getSubject();
+        	
+        	//roles pasado desde el .claim de Jwts.builder
+        	List<String> roles = (List<String>)claims.getClaim("roles");
+        	
+        	//actualizamos un nuevo token
+        	 return Jwts.builder()
+             		.setSubject(username)
+             	    .claim("roles", roles)
+                     .setIssuedAt(new Date())
+                     .setExpiration(new Date(new Date().getTime() + expiration))
+                     .signWith(SignatureAlgorithm.HS512, secret.getBytes())
+                     .compact();
+    	}
     	
-    	JWTClaimsSet claims = jwt.getJWTClaimsSet();
-    	
-    	String username = claims.getSubject();
-    	
-    	//roles pasado desde el .claim de Jwts.builder
-    	List<String> roles = (List<String>)claims.getClaim("roles");
-    	
-    	//actualizamos un nuevo token
-    	 return Jwts.builder()
-         		.setSubject(username)
-         	    .claim("roles", roles)
-                 .setIssuedAt(new Date())
-                 .setExpiration(new Date(new Date().getTime() + expiration))
-                 .signWith(SignatureAlgorithm.HS512, secret.getBytes())
-                 .compact();
+    	return null;
+
     }
     
     
