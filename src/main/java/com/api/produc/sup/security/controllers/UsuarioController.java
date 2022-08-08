@@ -20,10 +20,10 @@ import com.api.produc.sup.security.dto.SigninUsuarioDTO;
 import com.api.produc.sup.security.entities.Usuario;
 import com.api.produc.sup.security.services.UsuarioService;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 
 @RestController
 @RequestMapping("/api/v1/admin/usuarios")
@@ -40,13 +40,16 @@ public class UsuarioController {
 	// ================
 	// ===== POST =====
 	// ================
-	@Operation(summary = "Inserción de un Usuario Nivel Gestion")
+	@ApiOperation(value = "Inserción de un Usuario a Nivel Gestión", notes="Devuelve el usuario agregado")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Se ha Insertado el Usuario Correctamente", content = {
-					@Content(mediaType = "application/json") }),
-			@ApiResponse(responseCode = "400", description = "No se pudo Insertar el Usuario. Comprobar la Solicitud", content = @Content),
-			@ApiResponse(responseCode = "404", description = "La Inserción del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
-			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
+			@ApiResponse(code = 200, message = "Se ha Insertado el Usuario Correctamente"),
+			@ApiResponse(code = 201, message = "Se ha Insertado el Usuario Correctamente"),
+			@ApiResponse(code = 400,  message = "No se pudo Insertar el Usuario. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para insertar un Usuario. Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha podido insertar el Usuario. El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "La Inserción del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor")
+			})
 	@PostMapping("/")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> addUsuario(@RequestBody SigninUsuarioDTO usuarioDTO) {
@@ -65,13 +68,16 @@ public class UsuarioController {
 	// ================
 	// ===== POST =====
 	// ================
-	@Operation(summary = "Inserción de un Usuario")
+	@ApiOperation(value = "Inserción de un Usuario", notes="Devuelve el usuario agregado")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Se ha Insertado el Usuario Correctamente", content = {
-					@Content(mediaType = "application/json") }),
-			@ApiResponse(responseCode = "400", description = "No se pudo Insertar el Usuario. Comprobar la Solicitud", content = @Content),
-			@ApiResponse(responseCode = "404", description = "La Inserción del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
-			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
+			@ApiResponse(code = 200, message = "Se ha Insertado el Usuario Correctamente"),
+			@ApiResponse(code = 201, message = "Se ha Insertado el Usuario Correctamente"),
+			@ApiResponse(code = 400,  message = "No se pudo Insertar el Usuario. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para insertar un Usuario. Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha podido insertar el Usuario. El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "La Inserción del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor")
+			})
 	@PostMapping("/auth")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> addUsuario(@RequestBody Usuario usuario) {
@@ -90,13 +96,16 @@ public class UsuarioController {
 	// ================
 	// ===== PUT =====
 	// ================
-	@Operation(summary = "Actualización de un Usuario")
+	@ApiOperation(value = "Actualización de un Usuario", notes="Devuelve el Usuario actualizado")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Se ha Actualizado el Usuario Correctamente", content = {
-					@Content(mediaType = "application/json") }),
-			@ApiResponse(responseCode = "400", description = "No se pudo Actualizar el Usuario. Comprobar la Solicitud", content = @Content),
-			@ApiResponse(responseCode = "404", description = "La Actualización del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
-			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
+			@ApiResponse(code = 200, message = "Se ha Actualizado el Usuario Correctamente"),
+			@ApiResponse(code = 201, message = "Se ha Actualizado el Usuario Correctamente"),
+			@ApiResponse(code = 400,  message = "No se pudo Actualizar el Usuario. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para actualizar el Usuario. Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha podido actualizar el Usuario. El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "La Actualización del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor")
+			})
 	@PutMapping("/{id}")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> updateUsuario(@PathVariable("id") long id,@RequestBody SigninUsuarioDTO usuarioDTO) {
@@ -115,13 +124,16 @@ public class UsuarioController {
 	// ================
 	// ===== DELETE =====
 	// ================
-	@Operation(summary = "Eliminación de un Usuario")
+	@ApiOperation(value = "Eliminación de un Usuario", notes="Devuelve el Usuario eliminado")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Se ha Eliminado el Usuario Correctamente", content = {
-					@Content(mediaType = "application/json") }),
-			@ApiResponse(responseCode = "400", description = "No se pudo Eliminar el Usuario. Comprobar la Solicitud", content = @Content),
-			@ApiResponse(responseCode = "404", description = "La Eliminación del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
-			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
+			@ApiResponse(code = 200, message = "Se ha Eliminado el Usuario Correctamente"),
+			@ApiResponse(code = 201, message = "Se ha Actualizado el Usuario Correctamente"),
+			@ApiResponse(code = 400,  message = "No se pudo Eliminar el Usuario. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para actualizar el Usuario. Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha podido actualizar el Usuario. El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "La Eliminación del Usuario no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor")
+			})
 	@DeleteMapping("/{id}")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<?> deleteUsuario(@PathVariable("id") long id) {
@@ -141,13 +153,16 @@ public class UsuarioController {
 	// =================
 	// ===== GET ALL ====
 	// =================
-	@Operation(summary = "Listado Paginado de Usuarios")
+	@ApiOperation(value = "Listado Paginado de Usuarios", notes="Devuelve el/los Usuario/s paginados")
 	@ApiResponses(value = {
-			@ApiResponse(responseCode = "200", description = "Se ha Traído el Listado de Usuarios Correctamente", content = {
-					@Content(mediaType = "application/json") }),
-			@ApiResponse(responseCode = "400", description = "No se pudo traer el Listado de Usuarios. Comprobar la Solicitud", content = @Content),
-			@ApiResponse(responseCode = "404", description = "El Listado de Usuarios no está Disponible ya que el recurso pedido no existe. Comprobar solicitud", content = @Content),
-			@ApiResponse(responseCode = "500", description = "Se ha producido un error interno en el Servidor", content = @Content) })
+			@ApiResponse(code = 200, message = "Se han Listado el/los Usuario/s Correctamente"),
+			@ApiResponse(code = 201, message = "Se han Listado el/los Usuario/s Correctamente"),
+			@ApiResponse(code = 400,  message = "No se ha/han podido Listar los Usuario. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para listar el/los Usuario/s. Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha/han podido listar el/los Usuario. El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "El Listado de/los Usuario/s no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor")
+			})
 	@GetMapping("/listado")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public Page<Usuario> getAllUsuario(Pageable pageable) {

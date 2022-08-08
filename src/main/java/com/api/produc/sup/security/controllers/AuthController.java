@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -34,6 +35,9 @@ import com.api.produc.sup.security.jwt.JwtProvider;
 import com.api.produc.sup.security.services.RolService;
 import com.api.produc.sup.security.services.UsuarioService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 
@@ -57,6 +61,25 @@ public class AuthController {
 	@Autowired
 	JwtProvider jwtProvider;
 
+	
+	
+	
+	
+
+	// =====================
+	// ===== POST SIGNIN ===
+	// =====================
+	// ---INSERCIÓN DE USUARIOS---
+	@ApiOperation(value = "Inserción de Usuarios", notes="Devuelve el usuario registrado")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Se ha Eliminado el Producto Correctamente"),
+			@ApiResponse(code = 201, message = "Se ha Actualizado el Producto Correctamente"),
+			@ApiResponse(code = 400,  message = "No se pudo Eliminar el Producto. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para actualizar el producto. Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha podido actualizar el producto. El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "La Eliminación del Producto no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor")
+			})
 	@PostMapping("/signin")
 	public ResponseEntity<?> signin(@Valid @RequestBody SigninUsuarioDTO signinUsuario, BindingResult bindingResult) {
 
@@ -103,7 +126,20 @@ public class AuthController {
 	
 	
 	
-
+	// =====================
+	// ===== POST LOGIN ===
+	// =====================
+	// ---VALIDACIÓN DE USUARIOS---
+	@ApiOperation(value = "Validación de Usuarios", notes="Devuelve el token si se ha autenticado correctamente")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Se ha Eliminado el Producto Correctamente"),
+			@ApiResponse(code = 201, message = "Se ha Actualizado el Producto Correctamente"),
+			@ApiResponse(code = 400,  message = "No se pudo Eliminar el Producto. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para actualizar el producto. Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha podido actualizar el producto. El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "La Eliminación del Producto no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor")
+			})
 	@PostMapping("/login")
 	public ResponseEntity<?> login(@Valid @RequestBody LoginUsuarioDTO loginUsuario, BindingResult bindingResult) {
 
@@ -130,6 +166,20 @@ public class AuthController {
 	
 	
 	
+	// ============================
+	// ===== POST REFRESH TOKEN ===
+	// ============================
+	// ---VALIDACIÓN DE USUARIOS REFRESCADO---
+	@ApiOperation(value = "Validación de Usuarios Refrescado", notes="Devuelve un nuevo token si es que el token caducado es válido/autenticado ")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Se ha Eliminado el Producto Correctamente"),
+			@ApiResponse(code = 201, message = "Se ha Actualizado el Producto Correctamente"),
+			@ApiResponse(code = 400,  message = "No se pudo Eliminar el Producto. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para actualizar el producto. Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha podido actualizar el producto. El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "La Eliminación del Producto no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor")
+			})
 	
 	@PostMapping("/refresh-token")
 	public ResponseEntity<?> refreshToken(@RequestBody JwtDTO jwtDto) throws ParseException{
