@@ -63,7 +63,7 @@
 ### Prueba de Funcionalidad de la ApiRest
 
 
-* AuthController : [![Alt text](https://img.youtube.com/vi/vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2/0.jpg)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
+* AuthController : [![Alt text](https://img.youtube.com/vi/vxmJAXwahNk/0.jpg)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
 
 * UsuarioController : https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2
 
