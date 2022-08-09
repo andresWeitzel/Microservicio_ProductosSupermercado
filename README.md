@@ -9,7 +9,6 @@
 * Todas las funcionalidades tienen generación de logs en el Server para los errores y excepciones personalizadas
 * Se incluye documentación completa de la Api con SpringFox para la visualización con swagger-ui, las anotaciones de open-api se aplican junto con los códigos de respuesta de tipo HTTP para cada función en los respectivos controllers.
 * Se pone a disposición todos los recursos anteriores para productos y usuarios.
-* Aclaración: No se configura la auth con token para open-api por razones de tiempos personales. Verificar esto desde la doc de spring security/open-api
 * Entre Otros.
 
 </br>
@@ -63,11 +62,23 @@
 ### Prueba de Funcionalidad de la ApiRest
 
 
-* AuthController : [![Alt text](https://img.youtube.com/vi/vxmJAXwahNk/0.jpg)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
+#### Login y Signin 
+[![Alt text](https://img.youtube.com/vi/vxmJAXwahNk/0.jpg)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
 
-* UsuarioController : https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2
+#### Refresh Token
+[![Alt text](https://img.youtube.com/vi/P_iGkoIgXFM/0.jpg)](https://www.youtube.com/watch?v=P_iGkoIgXFM&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
 
-* ProductoController : https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3
+#### Usuario Controller
+[![Alt text](https://img.youtube.com/vi/eG7dirCPflU/0.jpg)](https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
+
+#### Producto Controller
+[![Alt text](https://img.youtube.com/vi/JqrTA97Y4N4/0.jpg)](https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
+
+#### Documentación SwaggerUI / SpringFox
+[![Alt text](https://img.youtube.com/vi/F2BlURXQaDs/0.jpg)](https://www.youtube.com/watch?v=F2BlURXQaDs&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
+
+
+
 
 </br>
 
@@ -84,8 +95,9 @@
 | Spring Security  | 2.6.7 | Módulo de Seguridad de Spring |
 | Json Web Token  | 0.9.1 | Manejo de Token's de Seguridad |
 | Lombok | 1.18.22 | Automatización de Código | 
-| Open-Api y UI Swagger | 1.6.4 | Documentación de la Api | 
-| UI Swagger | 1.6.4 | Visualización y Gestión de la Api | 
+| SpringFox | 3.0.0 | Documentación de la Api | 
+| Swagger UI | 3.0.0 | Visualización y Gestión de la Api | 
+| Postman | 9.1.1 | Visualización y Gestión de la Api | 
 | Maven |  4.0.0 | Gestor de Proyectos |
 | PostgreSQL | 13.2 | Sistema de Gestión de DB'S |
 | DBeaver | 22.1  | Editor de Base de Datos |
@@ -107,10 +119,12 @@
 | spring-boot-devtools | 2.6.7 | Herramientas para el Manejo de Spring Boot | 
 | spring-boot-starter-security | 2.6.7 | Módulo de Seguridad de Spring |
 | jjwt | 0.9.1 | Manejo de Token's |
+| nimbus-jose-jwt | 9.22 | Refresh Token |
 | jaxb-api | 4.0 | Serialización de Objetos Java a XML |
 | jackson-databind | 4.0 | Serialización de Objetos Java a JSON |
 | javax-annotation-api | 4.0 | Api para la lectura de annotations|
-| springdoc-openapi-ui | 1.6.4 | Plantillas para el Front |
+| springfox-boot-starter | 3.0.0 | Doc Api |
+| springfox-swagger-ui | 3.0.0 | Doc Api |
 | postgresql | 42.3.4 | Driver para el SGDB PostgreSQL | 
 | lombok | 1.18.22 |  Dependencia para la automatización de Código |
 
@@ -118,8 +132,9 @@
 </hr>
 
 ### Doc No Oficial Recomendada
-* Config open-api y Swagger: https://www.baeldung.com/spring-rest-openapi-documentation
-* Anotation open-api : https://github.com/dailycodebuffer/Spring-MVC-Tutorials/blob/master/openapi-documentation/src/main/java/com/dailycodebuffer/controller/BookController.java
+* Config Swagger: https://www.baeldung.com/swagger-set-example-description
+* Generar doc con swagger : https://howtodoinjava.com/swagger2/swagger-spring-mvc-rest-example/
+* Api Response con swagger : https://docs.swagger.io/swagger-core/v1.5.0/apidocs/io/swagger/annotations/ApiResponse.html
 * Códigos HTTP de respuestas desarrollar en apis :https://www.ibm.com/docs/es/odm/8.5.1?topic=api-rest-response-codes-error-messages
 
 ### Doc Gráfica No Oficial Recomendada
@@ -133,7 +148,7 @@
 <hr>
 
 ## ` Documentación y Guía del Proyecto `
-#### (Esta Documentación que Desarrollé es para la Creación y Configuración de la API Rest, Manejo y Dependencias de Maven, Spring Tool Suite, Spring Boot, Spring Security, Hibernate-JPA, PostgreSQL, Open-Api, Swagger UI y otros usos. Esta guía solamente abarca algunos puntos de configuración, si se requiere especificidad para algún caso concreto dirigirse a los links que se anexan en cada paso. Recomiendo Leerla y Realizar todo paso a paso como se indica en la misma ).
+#### (Esta Documentación que Desarrollé es para la Creación y Configuración de la API Rest, Manejo y Dependencias de Maven, Spring Tool Suite, Spring Boot, Spring Security, JWT, PostgreSQL, SpringFox, Swagger UI y otros usos. Esta guía solamente abarca algunos puntos de configuración, si se requiere especificidad para algún caso concreto dirigirse a los links que se anexan en cada paso. Recomiendo Leerla y Realizar todo paso a paso como se indica en la misma ).
 
 </br>
 
@@ -336,8 +351,8 @@
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 		</dependency>
-		
-	
+
+
 
 		<!-- CONVERTIR OBJETOS JAVA EN OBJETOS JSON -->
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
@@ -351,15 +366,25 @@
 			<groupId>javax.annotation</groupId>
 			<artifactId>javax.annotation-api</artifactId>
 		</dependency>
-		
+
 		<!-- API PARA LAS VALIDACIONES -->
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-validation</artifactId>
-    <version>2.7.0</version>
-</dependency>
-		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+
+
+		<!-- REFRESH TOKEN -->
+		<!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
+		<dependency>
+			<groupId>com.nimbusds</groupId>
+			<artifactId>nimbus-jose-jwt</artifactId>
+			<version>9.22</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -383,11 +408,20 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- OPENAPI-UI -->
+		<!-- SWAGGER -->
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
 		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.6.4</version>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		
+		<!-- SWAGGER -->
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 
 		<!--LOMBOK -->
@@ -415,6 +449,7 @@
 	</build>
 
 </project>
+
 
 ```
 
@@ -471,18 +506,6 @@ spring.datasource.username=postgres
 spring.datasource.password=postgres
 ```
 
-* Para Trabajar con open-api y swagger ui vamos a configurar la ruta de la vista de swagger entre otros
-
-
-```xml
-#---CONFIG OPEN-UI -----
-springdoc.api-docs.path=/api-docs
-
-#---CONFIG SWAGGER -----
-springdoc.swagger-ui.path=/swagger-ui-custom.html
-springdoc.swagger-ui.operationsSorter=method
-
-```
 * Configuramos los loggins y paginaciones
 
 ```xml
@@ -497,17 +520,6 @@ spring.data.rest.default-page-size = 10
 logging.level.org.springframework.data=debug
 logging.level.=errors
 
-
-```
-
-* Además seteamos algunas configs de jwt 
-
-
-```
-
-# --- SPRING SECURITY
-jwt.secret = secret
-jwt.expiration = 36000
 
 ```
 
@@ -531,12 +543,7 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/microdb_productos_superme
 spring.datasource.username=postgres
 spring.datasource.password=postgres
 
-#---CONFIG OPEN-UI -----
-springdoc.api-docs.path=/api-docs
 
-#---CONFIG SWAGGER -----
-springdoc.swagger-ui.path=/swagger-ui-custom.html
-springdoc.swagger-ui.operationsSorter=method
 
 #---CONFIG PAGINATION---
 spring.data.rest.page-param-name=page
@@ -549,10 +556,6 @@ spring.data.rest.default-page-size = 10
 logging.level.org.springframework.data=debug
 logging.level.=errors
 
-
-# --- SPRING SECURITY
-jwt.secret = secret
-jwt.expiration = 36000
 ```
 
 
