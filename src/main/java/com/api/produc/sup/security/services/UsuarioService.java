@@ -257,6 +257,13 @@ public class UsuarioService {
 	public boolean existsByUsername(String username) {
 		return iUsuarioRepository.existsByUsername(username);
 	}
+	
+	// ===========================
+	// ===== CHECK BY PASSWORD =====
+	// ===========================
+	public boolean existsByPassword(String password) {
+		return iUsuarioRepository.existsByPassword(password);
+	}
 
 	// ===========================
 	// ===== CHECK BY EMAIL =====

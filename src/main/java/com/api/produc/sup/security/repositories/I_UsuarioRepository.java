@@ -46,6 +46,8 @@ public interface I_UsuarioRepository extends JpaRepository<Usuario, Serializable
 
 	    boolean existsByUsername(String username);
 	    
+	    boolean existsByPassword(String password);
+	    
 	    
 	    boolean existsByEmail(String email);
 

@@ -146,6 +146,20 @@ public class AuthController {
 		if (bindingResult.hasErrors()) {
 			return new ResponseEntity<String>("Campos Inválidos!!", HttpStatus.BAD_REQUEST);
 		}
+		
+		if (!(usuarioService.existsByUsername(loginUsuario.getUsername()))
+				|| !(usuarioService.existsByPassword(loginUsuario.getPassword())) ) {
+			return new ResponseEntity<String>("El Usuario no existe. Comprobar username y password!!", HttpStatus.BAD_REQUEST);
+		}
+		
+
+		if(loginUsuario.getUsername().isBlank() 
+				|| loginUsuario.getPassword().isBlank()
+				)
+		{
+			return new ResponseEntity<String>("No se permiten campos vacios!!", HttpStatus.BAD_REQUEST);
+		}
+
 
 		Authentication authentication = authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(loginUsuario.getUsername(), loginUsuario.getPassword()));
