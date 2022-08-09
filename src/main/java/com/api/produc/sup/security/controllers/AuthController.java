@@ -147,8 +147,7 @@ public class AuthController {
 			return new ResponseEntity<String>("Campos Inválidos!!", HttpStatus.BAD_REQUEST);
 		}
 		
-		if (!(usuarioService.existsByUsername(loginUsuario.getUsername()))
-				|| !(usuarioService.existsByPassword(loginUsuario.getPassword())) ) {
+		if (!(usuarioService.existsByUsername(loginUsuario.getUsername())) ) {
 			return new ResponseEntity<String>("El Usuario no existe. Comprobar username y password!!", HttpStatus.BAD_REQUEST);
 		}
 		
