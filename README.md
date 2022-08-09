@@ -63,19 +63,19 @@
 
 
 #### Login y Signin 
-[![Alt text](https://img.youtube.com/vi/vxmJAXwahNk/0.jpg)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/loginSignin.png)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
 
 #### Refresh Token
-[![Alt text](https://img.youtube.com/vi/P_iGkoIgXFM/0.jpg)](https://www.youtube.com/watch?v=P_iGkoIgXFM&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/refreshToken.png)](https://www.youtube.com/watch?v=P_iGkoIgXFM&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
 
 #### Usuario Controller
-[![Alt text](https://img.youtube.com/vi/eG7dirCPflU/0.jpg)](https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/usuarioController.png)](https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
 
 #### Producto Controller
-[![Alt text](https://img.youtube.com/vi/JqrTA97Y4N4/0.jpg)](https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/productoController.png)](https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
 
 #### Documentación SwaggerUI / SpringFox
-[![Alt text](https://img.youtube.com/vi/F2BlURXQaDs/0.jpg)](https://www.youtube.com/watch?v=F2BlURXQaDs&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/docSwagger.png)](https://www.youtube.com/watch?v=F2BlURXQaDs&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
 
 
 
