@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
@@ -37,7 +36,7 @@ public class JwtProvider {
 
    
     //private int expiration= 300000 * 1;//5min * x --> 5min
-    private int expiration= 300000 * 10;
+    private int expiration= 300000;
 
     
     
