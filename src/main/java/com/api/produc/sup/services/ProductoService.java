@@ -41,8 +41,13 @@ public class ProductoService {
 					|| producto.getStock() == 0.0) {
 				logger.error("ERROR addProducto : LOS VALORES DE LOS CAMPOS DEL PRODUCTO " + producto + " NO SON VÁLIDOS!!");
 				throw new ProductoNotFoundExc("VALORES DE CAMPOS NO VÁLIDOS");
-				
-			} else {
+
+			
+		}else if(producto == iProductoRepository.findByCodigo(producto.getCodigo())) {
+			logger.error("ERROR addProducto : NO SE PUEDE REPETIR EL PRODUCTO " + producto + " !!");
+			throw new ProductoNotFoundExc("NO SE PUEDE REPETIR UN PRODUCTO");
+			
+		}else {
 				iProductoRepository.save(producto);
 			}
 

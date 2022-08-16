@@ -23,6 +23,9 @@ public interface I_ProductoRepository
 	@Query("select c from Producto c where lower(c.codigo) like lower(concat('%', :codigo, '%'))")
 	public abstract Page<Producto> findByCodigo(String codigo, Pageable pageable);
 
+	//Para check
+	public abstract Producto findByCodigo(String codigo);
+
 	@Query("select c from Producto c where lower(c.imagen) like lower(concat('%', :imagen, '%'))")
 	public abstract Page<Producto> findByImagen(String imagen, Pageable pageable);
 
