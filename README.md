@@ -81,7 +81,7 @@
 
 
 ### Usuario Bean Validations (Update and Delete)
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/beanUsuariosValidat02.png)](https://www.youtube.com/watch?v=o8vOd0dERFI&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/beanUsuariosValidat02.png.png)](https://www.youtube.com/watch?v=o8vOd0dERFI&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
 
 
 ### Producto Controller
