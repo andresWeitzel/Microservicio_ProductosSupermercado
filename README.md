@@ -34,21 +34,25 @@
 ### Descripción Api Rest
 ![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/description.png)
 
-### Response Modelo
-![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/response-examples.png)
+### Response Modelo Códigos Http
+![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/httpCodeSwagger01.png)
+![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/httpCodeSwagger02.png)
+
+### Beans Validations 
+![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/beanValidations.png)
 
 
 ### Recursos por Endpoint
 
-#### Producto Controller. 
+### Producto Controller. 
 ![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/productoController.png)
 
 
-#### Usuario Controller. 
+### Usuario Controller. 
 ![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/usuarioController.png)
 
 
-#### Auth Controller. 
+### Auth Controller. 
 ![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/authController.png)
 
 <hr>
@@ -62,19 +66,32 @@
 ### Prueba de Funcionalidad de la ApiRest
 
 
-#### Login y Signin 
+### Login y Signin 
 [![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/loginSignin.png)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
 
-#### Refresh Token
+### Refresh Token
 [![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/refreshToken.png)](https://www.youtube.com/watch?v=P_iGkoIgXFM&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
 
-#### Usuario Controller
+### Usuario Controller
 [![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/usuarioController.png)](https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
 
-#### Producto Controller
+
+### Usuario Bean Validations (Add)
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/beanUsuariosValidat01.png)](https://www.youtube.com/watch?v=U-6sD-k4_lg&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
+
+
+### Usuario Bean Validations (Update and Delete)
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/beanUsuariosValidat02.png)](https://www.youtube.com/watch?v=o8vOd0dERFI&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
+
+
+### Producto Controller
 [![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/productoController.png)](https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
 
-#### Documentación SwaggerUI / SpringFox
+### Producto Bean Validations (CRUD)
+[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/beanProductosValidation.png)](https://www.youtube.com/watch?v=ytdwagCbJXU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=7) 
+
+
+### Documentación SwaggerUI / SpringFox
 [![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/docSwagger.png)](https://www.youtube.com/watch?v=F2BlURXQaDs&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
 
 
