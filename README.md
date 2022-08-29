@@ -27,7 +27,7 @@
 * http://localhost:8098/api/v1/admin/usuarios/
 * http://localhost:8098/api/v1/auth/
 
-* Los recursos de cada endpoint se muestran en las siguientes imágenes respectivas a cada controller
+* Algunos de los recursos de cada endpoint se muestran en las siguientes imágenes respectivas a cada controller
 
 </br>
 
@@ -105,6 +105,18 @@
 | CMD | 10 | Símbolo del Sistema para linea de comandos | 
 | Git | 2.29.1  | Control de Versiones |
 
+</br>
+
+### Patrones de Diseño Implementados
+
+| **Patrón de Diseño** | **Finalidad** |               
+| ------------- | ------------- |
+| DAO | Uso de interfaces entre la aplicación y el almacenamiento de datos. |
+| MVC | Separación y Representación de los Datos, Manejo de errores, Escalabilidad, etc  |
+| DTO | Transferencia de objectos separando la capa de acceso a datos  |
+| Dependency Inyection | Uso de funcionalidades requeridas de clases a través de inyección |
+| Otros | Otros |
+
 
 </br>
 
@@ -129,7 +141,7 @@
 | lombok | 1.18.22 |  Dependencia para la automatización de Código |
 
 
-</hr>
+</br>
 
 ### Doc No Oficial Recomendada
 * Config Swagger: https://www.baeldung.com/swagger-set-example-description
