@@ -23,7 +23,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UsuarioDetails implements UserDetails {
 	
-    private String nombre;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String nombre;
     
     private String username;
 

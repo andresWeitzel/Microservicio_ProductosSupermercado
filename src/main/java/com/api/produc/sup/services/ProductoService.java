@@ -10,9 +10,6 @@ import com.api.produc.sup.entities.Producto;
 import com.api.produc.sup.exc.productos.ProductoIdMismatchExc;
 import com.api.produc.sup.exc.productos.ProductoNotFoundExc;
 import com.api.produc.sup.repositories.I_ProductoRepository;
-
-import java.util.UUID;
-
 import org.apache.logging.log4j.Logger;
 
 @Service
@@ -52,7 +49,7 @@ public class ProductoService {
 			}
 
 		} catch (Exception e) {
-			logger.error("ERROR addProducto : EL PRODUCTO " + producto + " NO SE HA INSERTADO EN LA DB!!");
+			logger.error("ERROR addProducto : EL PRODUCTO " + producto + " NO SE HA INSERTADO EN LA DB!! CAUSADO POR "+e);
 			throw new ProductoNotFoundExc("NO SE PUDO AGREGAR EL PRODUCTO ", e, false, true);
 		}
 	}
@@ -93,7 +90,7 @@ public class ProductoService {
 			}
 
 		} catch (Exception e) {
-			logger.error("ERROR updateProducto : EL PRODUCTO " + producto + " NO SE HA ACTUALIZADO EN LA DB!!");
+			logger.error("ERROR updateProducto : EL PRODUCTO " + producto + " NO SE HA ACTUALIZADO EN LA DB!! CAUSADO POR "+e);
 			throw new ProductoNotFoundExc("NO SE PUDO ACTUALIZAR EL PRODUCTO ", e, false, true);
 		}
 	}
@@ -114,7 +111,7 @@ public class ProductoService {
 			}
 
 		} catch (Exception e) {
-			logger.error("ERROR deleteProducto : EL PRODUCTO CON EL ID " + id + " NO SE HA ELIMINDO EN LA DB!!");
+			logger.error("ERROR deleteProducto : EL PRODUCTO CON EL ID " + id + " NO SE HA ELIMINDO EN LA DB!!CAUSADO POR "+e);
 			throw new ProductoNotFoundExc("NO SE PUDO ELIMINAR EL PRODUCTO ", e, false, true);
 		}
 	}

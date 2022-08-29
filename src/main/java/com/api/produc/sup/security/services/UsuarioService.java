@@ -51,7 +51,7 @@ public class UsuarioService {
 
 				Set<Rol> roles = new HashSet<>();
 
-				if (usuarioDTO.getRoles().contains("user")) {
+				if (usuarioDTO.getRoles().contains("user") || usuarioDTO.getRoles().isEmpty()) {
 					roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
 				}
 
@@ -66,7 +66,7 @@ public class UsuarioService {
 			}
 
 		} catch (Exception e) {
-			logger.error("ERROR addUsuario : EL USUARIO " + usuarioDTO + " NO SE HA INSERTADO EN LA DB!!");
+			logger.error("ERROR addUsuario : EL USUARIO " + usuarioDTO + " NO SE HA INSERTADO EN LA DB!!CAUSADO POR "+e);
 			throw new UsuarioNotFoundExc("NO SE PUDO AGREGAR EL USUARIO ", e, false, true);
 		}
 	}
@@ -86,7 +86,7 @@ public class UsuarioService {
 			}
 
 		} catch (Exception e) {
-			logger.error("ERROR addUsuario : EL USUARIO " + usuario + " NO SE HA INSERTADO EN LA DB!!");
+			logger.error("ERROR addUsuario : EL USUARIO " + usuario + " NO SE HA INSERTADO EN LA DB!!CAUSADO POR "+e);
 			throw new UsuarioNotFoundExc("NO SE PUDO AGREGAR EL USUARIO ", e, false, true);
 		}
 	}
@@ -96,43 +96,62 @@ public class UsuarioService {
 	// ==================
 	public void updateUsuario(long id, SigninUsuarioDTO usuarioDTO) {
 		try {
+			Optional<Usuario> usuarioDb = this.iUsuarioRepository.findById(id);
+			
 			if (usuarioDTO == null) {
 				logger.error("ERROR updateUsuario : EL USUARIO " + usuarioDTO + " ES NULO!!");
 				throw new UsuarioNotFoundExc("EL USUARIO ES NULO");
-			} else {
-
+			}else if (id < 0){
+				logger.error("ERROR updateUsuario : EL ID  NO ES VÁLIDO!!");
+				throw new UsuarioNotFoundExc("EL ID DEL USUARIO NO ES VÁLIDO");
 			
-				Usuario usuarioEncode = new Usuario(id, usuarioDTO.getNombre(), usuarioDTO.getUsername(),
-						new BCryptPasswordEncoder().encode(usuarioDTO.getPassword()), usuarioDTO.getEmail());
+			}else if (usuarioDTO.getNombre() == "" 
+					|| usuarioDTO.getPassword() == "" || usuarioDTO.getEmail() == ""){
+				logger.error("ERROR updateProducto : LOS VALORES DE LOS CAMPOS DEL USUARIO " 
+					+ usuarioDTO + " NO SON VÁLIDOS!!");
+				throw new UsuarioNotFoundExc("VALORES DE CAMPOS NO VÁLIDOS");
+			
+			}else {
+				
 
-				
-				
 				Set<Rol> roles = new HashSet<>();
 
-				if (usuarioDTO.getRoles().contains("user")) {
+				if (usuarioDTO.getRoles().contains("ROLE_USER") || usuarioDTO.getRoles().isEmpty()) {
 					roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
 				}
 
-				if (usuarioDTO.getRoles().contains("admin")) {
+				if (usuarioDTO.getRoles().contains("ROLE_ADMIN")) {
 					roles.add(rolService.getByRol(TipoRol.ROLE_ADMIN).get());
 					roles.add(rolService.getByRol(TipoRol.ROLE_USER).get());
 				}
 
-				usuarioEncode.setRoles(roles);
+				
+				Usuario usuarioUpdate = usuarioDb.get();
+				
+				
+				System.out.println("USUARIO PRE UPDATE "+usuarioUpdate);
+			
+				
+				usuarioUpdate.setId(id);
+				usuarioUpdate.setNombre(usuarioDTO.getNombre());
+				usuarioUpdate.setUsername(usuarioDTO.getUsername());
+				usuarioUpdate.setPassword(new BCryptPasswordEncoder().encode(usuarioDTO.getPassword()));
+				usuarioUpdate.setEmail(usuarioDTO.getEmail());
+				usuarioUpdate.setRoles(roles);
+				
+
+				System.out.println("USUARIO POST UPDATE "+usuarioUpdate);
 
 				
-				//Usuario usuarioEdit = iUsuarioRepository.getById(id);
-
-				//usuarioEdit = usuarioEncode;
+				iUsuarioRepository.save(usuarioUpdate);
 				
-				
-				iUsuarioRepository.save(usuarioEncode);
+				logger.info("SE HA ACTUALIZADO CORRECTAMENTE EL NUEVO USUARIO " + usuarioUpdate);
 			}
-
 		} catch (Exception e) {
-			logger.error("ERROR updateUsuario : EL USUARIO " + usuarioDTO + " NO SE HA ACTUALIZADO EN LA DB!!");
+			logger.error("ERROR updateUsuario : EL USUARIO " + usuarioDTO + " NO SE HA ACTUALIZADO EN LA DB!!CAUSADO POR "+e);
 			throw new UsuarioNotFoundExc("NO SE PUDO ACTUALIZAR EL USUARIO ", e, false, true);
 		}
+
 	}
 
 	// ==================
@@ -149,7 +168,7 @@ public class UsuarioService {
 			}
 
 		} catch (Exception e) {
-			logger.error("ERROR deleteUsuario : EL USUARIO " + id + " NO SE HA ELIMINADO DE LA DB!!");
+			logger.error("ERROR deleteUsuario : EL USUARIO " + id + " NO SE HA ELIMINADO DE LA DB!!CAUSADO POR "+e);
 			throw new UsuarioNotFoundExc("NO SE PUDO ELIMINAR EL USUARIO ", e, false, true);
 		}
 	}

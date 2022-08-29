@@ -36,7 +36,7 @@ public class JwtProvider {
 
    
     //private int expiration= 300000 * 1;//5min * x --> 5min
-    private int expiration= 300000;
+    private int expiration= 300000 * 5;
 
     
     
