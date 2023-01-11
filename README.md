@@ -1,4 +1,4 @@
-# ApiRest_MicroFrontEnd_ProductosSupermercado
+# ApiRest Micro FrontEnd Productos de Supermercado
 
 * Api Rest para el Microservice App_MicroFrontEnd_Productos implementada con Spring Boot, Spring MVC, Spring Security, JWT , Spring Data JPA, SpringFox, Swagger UI, Maven, Lombok, Postman, Log4j, Git, DBeaver, pgAdmin y PostgreSQL.
 * La Api Rest implementa todas las Operaciones CRUD, tanto para productos como para usuarios. 
@@ -13,9 +13,9 @@
 
 </br>
 
-* Repositorio Base de Datos: https://github.com/andresWeitzel/Microdb_productos_supermercado_PostgreSQL
-* Repositorio App_MicroFrontEnd_Productos : https://github.com/andresWeitzel/App_MicroFrontEnd_Productos_SpringBoot_SpringSecurity_PostgreSQL
-* PlayList Proyecto : https://www.youtube.com/playlist?list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L
+* [Repositorio Base de Datos](https://github.com/andresWeitzel/Microdb_productos_supermercado_PostgreSQL)
+* [Repositorio App_MicroFrontEnd_Productos](https://github.com/andresWeitzel/App_MicroFrontEnd_Productos_SpringBoot_SpringSecurity_PostgreSQL)
+* [PlayList del Proyecto](https://www.youtube.com/playlist?list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L)
 
 
 </br>
@@ -161,15 +161,15 @@
 </br>
 
 ### Doc No Oficial Recomendada
-* Config Swagger: https://www.baeldung.com/swagger-set-example-description
-* Generar doc con swagger : https://howtodoinjava.com/swagger2/swagger-spring-mvc-rest-example/
-* Api Response con swagger : https://docs.swagger.io/swagger-core/v1.5.0/apidocs/io/swagger/annotations/ApiResponse.html
-* Códigos HTTP de respuestas desarrollar en apis :https://www.ibm.com/docs/es/odm/8.5.1?topic=api-rest-response-codes-error-messages
+* [Config Swagger](https://www.baeldung.com/swagger-set-example-description)
+* [Generar doc con swagger](https://howtodoinjava.com/swagger2/swagger-spring-mvc-rest-example/)
+* [Api Response con swagger](https://docs.swagger.io/swagger-core/v1.5.0/apidocs/io/swagger/annotations/ApiResponse.html)
+* [Códigos HTTP de respuestas desarrollar en apis](https://www.ibm.com/docs/es/odm/8.5.1?topic=api-rest-response-codes-error-messages)
 
 ### Doc Gráfica No Oficial Recomendada
-* Implementación de Spring Security y JWT Youtube : https://www.youtube.com/watch?v=_91iKzsKdqY&list=PL4bT56Uw3S4z9rtwwGvuk1Mjhu5sdLSwX&index=12
-* Implementación Spring Security : https://www.youtube.com/watch?v=tDZPdovCH4I
-* Tutorial doc open-api : https://www.youtube.com/watch?v=iaVBleTf88U
+* [Implementación de Spring Security y JWT Youtube](https://www.youtube.com/watch?v=_91iKzsKdqY&list=PL4bT56Uw3S4z9rtwwGvuk1Mjhu5sdLSwX&index=12)
+* [Implementación Spring Security](https://www.youtube.com/watch?v=tDZPdovCH4I)
+* [Tutorial doc open-api](https://www.youtube.com/watch?v=iaVBleTf88U)
 
 
 
