@@ -152,8 +152,6 @@
 
 </details>
 
-</br>
-
 
 ### 1.4) Dependencias Maven [🔝](#índice-)
 
@@ -294,13 +292,10 @@
 
 
 
+### 3.1) Referencias [🔝](#índice-)
 
-
-
-
-
-
-</br>
+<details>
+ <summary>Ver</summary>
 
 ### Doc No Oficial Recomendada
 * [Config Swagger](https://www.baeldung.com/swagger-set-example-description)
@@ -314,6 +309,26 @@
 * [Tutorial doc open-api](https://www.youtube.com/watch?v=iaVBleTf88U)
 
 
+ <br>
+
+</details>
+
+
+
+
+
+
+
+<br>
+
+<br>
+
+<br>
+
+### `Siguiente sección en proceso de actualización` 
+
+<details>
+ <summary>Ver</summary>
 
 
 <hr>
@@ -842,8 +857,8 @@ logging.level.=errors
 * git push -f --set-upstream origin master
 
 
-</br>
+ <br>
 
-
+</details>
 
 
