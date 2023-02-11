@@ -32,8 +32,8 @@
   
 ### Sección 2) Endpoints y Recursos 
  
- - [2.0) EndPoints.](#endpoints-)
- - [2.1) Recursos y Servicios.](#recursos-y-servicios-)
+ - [2.0) EndPoints.](#20-endpoints-)
+ - [2.1) Recursos por endpoints.](#21-recursos-por-endpoints-)
   
   
 ### Sección 3) Prueba de Funcionalidad y Referencias
@@ -128,7 +128,7 @@
  
  <br>
 
-| Tecnologías BACKEND | Versión | Finalidad
+| Tecnología | Versión | Finalidad
 | ------------- | ------------- | ------------- |
 | [Java]( https://www.oracle.com/java/technologies/javase/jdk12-archive-downloads.html) |   12.0.2 | JDK |
 | [Spring Tool Suite 4](https://spring.io/blog/2021/06/21/spring-tools-4-11-0-released) | 4.9.0  | IDE |
@@ -211,7 +211,6 @@
 ### Beans Validations 
 ![Index app](./doc/beanValidations.png)
 
-* Algunos de los recursos de cada endpoint se muestran en las siguientes imágenes.
 
 <br>
 
@@ -220,14 +219,13 @@
 
 
 
-### 2.1) Recursos por Endpoints. (Swagger UI) [🔝](#índice-)
+### 2.1) Recursos por Endpoints[🔝](#índice-)
 
 <details>
  <summary>Ver</summary>
  
+* Algunos de los recursos de cada endpoint se muestran en las siguientes imágenes.
  
-### Recursos por Endpoint
-
 ### Producto Controller. 
 ![Index app](./doc/productoController.png)
 
