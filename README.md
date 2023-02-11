@@ -1,143 +1,166 @@
-# ApiRest Micro FrontEnd Productos de Supermercado
+<img src="./doc/beanValidations.png" style="width: 100%; height: 80%"/>
 
-* Api Rest para el Microservice App_MicroFrontEnd_Productos implementada con Spring Boot, Spring MVC, Spring Security, JWT , Spring Data JPA, SpringFox, Swagger UI, Maven, Lombok, Postman, Log4j, Git, DBeaver, pgAdmin y PostgreSQL.
-* La Api Rest implementa todas las Operaciones CRUD, tanto para productos como para usuarios. 
-* Se separa la capa de seguridad para la autenticación , implementando Spring Security y JWT. Además de realizar las operaciones CRUD para usuarios se aplica login y signin para la capa de presentación.
-* También se desarrollan los métodos de búsquedas independientes de tipo Like para todos los campos, tanto de usuarios como productos.
-* Los objetos de tipo getBy se manipulan como paginados, salvo los getById y Optional que se requiere un response por objeto y no una E.D como de tipo lista, stream, etc.
-* Se Desarrollan Clases Específicas para el Manejo de Excepciones para cada Servicio , como también un manejador de excepciones y validaciones por campos de beans.
-* Todas las funcionalidades tienen generación de logs en el Server para los errores y excepciones personalizadas
-* Se incluye documentación completa de la Api con SpringFox para la visualización con swagger-ui, las anotaciones de open-api se aplican junto con los códigos de respuesta de tipo HTTP para cada función en los respectivos controllers.
-* Se pone a disposición todos los recursos anteriores para productos y usuarios.
-* Entre Otros.
+# ApiRest Micro Front End Productos de Supermercado
+
+* Api Rest para el Microservice App_MicroFrontEnd_Productos implementado con Spring Boot, Spring MVC, Spring Security, JWT , Spring Data JPA, SpringFox, Swagger UI, Maven, Lombok, Postman, Log4j, Git, DBeaver, pgAdmin y PostgreSQL.
+
 
 </br>
 
-* [Repositorio Base de Datos](https://github.com/andresWeitzel/Microdb_productos_supermercado_PostgreSQL)
+* [Repositorio base de datos](https://github.com/andresWeitzel/Microdb_productos_supermercado_PostgreSQL)
 * [Repositorio App_MicroFrontEnd_Productos](https://github.com/andresWeitzel/App_MicroFrontEnd_Productos_SpringBoot_SpringSecurity_PostgreSQL)
 * [PlayList del Proyecto](https://www.youtube.com/playlist?list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L)
 
 
-</br>
+<br>
 
-### EndPoints y Recursos. Vista Swagger UI
+## Índice 📜
 
-### EndPoints
-* http://localhost:8098/api/v1/productos/
-* http://localhost:8098/api/v1/admin/usuarios/
-* http://localhost:8098/api/v1/auth/
+<details>
+ <summary> Ver </summary>
+ 
+ <br>
+ 
+### Sección 1) Descripción, Tecnologías y Dependencias 
 
-* Algunos de los recursos de cada endpoint se muestran en las siguientes imágenes respectivas a cada controller
+ - [1.0) Descripción del Proyecto.](#10-descripción-)
+ - [1.1) Ejecución del Proyecto.](#11-ejecución-del-proyecto-)
+ - [1.2) Patrones de Diseño.](#12-patrones-de-diseño-)
+ - [1.3) Tecnologías.](#13-tecnologías-)
+ - [1.4) Dependencias Maven.](#14-dependencias-maven-)
 
-</br>
+  
+### Sección 2) Endpoints y Recursos 
+ 
+ - [2.0) EndPoints.](#endpoints-)
+ - [2.1) Recursos y Servicios.](#recursos-y-servicios-)
+  
+  
+### Sección 3) Prueba de Funcionalidad y Referencias
+ 
+ - [3.0) Prueba de Funcionalidad.](#30-prueba-de-funcionalidad-)
+ - [3.1) Referencias.](#31-referencias-)
+	  
+  
+  
+<br>
 
-### Descripción Api Rest
-![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/description.png)
-
-### Response Modelo Códigos Http
-![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/httpCodeSwagger01.png)
-![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/httpCodeSwagger02.png)
-
-### Beans Validations 
-![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/beanValidations.png)
-
-
-### Recursos por Endpoint
-
-### Producto Controller. 
-![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/productoController.png)
-
-
-### Usuario Controller. 
-![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/usuarioController.png)
-
-
-### Auth Controller. 
-![Index app](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/authController.png)
-
-<hr>
+</details>
 
 
+<br>
+
+## Sección 1) Descripción, Tecnologías y Dependencias 
 
 
+### 1.0) Descripción [🔝](#índice-) 
 
-</br>
-
-### Prueba de Funcionalidad de la ApiRest
-
-
-### Login y Signin 
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/loginSignin.png)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
-
-### Refresh Token
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/refreshToken.png)](https://www.youtube.com/watch?v=P_iGkoIgXFM&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
-
-### Usuario Controller
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/usuarioController.png)](https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
-
-
-### Usuario Bean Validations (Add)
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/beanUsuariosValidat01.png)](https://www.youtube.com/watch?v=U-6sD-k4_lg&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
-
-
-### Usuario Bean Validations (Update and Delete)
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/beanUsuariosValidat02.png.png)](https://www.youtube.com/watch?v=o8vOd0dERFI&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
-
-
-### Producto Controller
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/productoController.png)](https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
-
-### Producto Bean Validations (CRUD)
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/beanProductosValidation.png)](https://www.youtube.com/watch?v=ytdwagCbJXU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=7) 
-
-
-### Documentación SwaggerUI / SpringFox
-[![Alt text](https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado/blob/master/doc/miniaturasYt/docSwagger.png)](https://www.youtube.com/watch?v=F2BlURXQaDs&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
-
-
-
+<details>
+  <summary>Ver</summary>
+ 
+ <br>
+ 
+* La Api Rest implementa todas las Operaciones CRUD, tanto para productos como para usuarios. 
+* Se separa la capa de seguridad para la autenticación , implementando Spring Security y JWT. 
+* Además de realizar las operaciones CRUD para usuarios se aplica login y signin para la capa de presentación.
+* También se desarrollan los métodos de búsquedas independientes de tipo Like para todos los campos, tanto de usuarios como productos.
+* Los objetos de tipo getBy se manipulan como paginados, salvo los getById y Optional que se requiere un response por objeto y no una E.D como de tipo lista, stream, etc.
+* Se desarrollan clases específicas para el manejo de excepciones para cada servicio , como también un manejador de excepciones y validaciones por campos de beans.
+* Todas las funcionalidades tienen generación de logs en el Server para los errores y excepciones personalizadas.
+* Se incluye documentación completa de la Api con SpringFox para la visualización con swagger-ui, las anotaciones de open-api se aplican junto con los códigos de respuesta de tipo HTTP para cada función en los respectivos controllers.
+* Se pone a disposición todos los recursos anteriores para productos y usuarios.
+* Entre otros.
 
 </br>
 
+* [Repositorio base de datos](https://github.com/andresWeitzel/Microdb_productos_supermercado_PostgreSQL)
+* [Repositorio App_MicroFrontEnd_Productos](https://github.com/andresWeitzel/App_MicroFrontEnd_Productos_SpringBoot_SpringSecurity_PostgreSQL)
+* [PlayList del Proyecto](https://www.youtube.com/playlist?list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L)
 
-### Tecnologías Implementadas
 
-| **Tecnologías** | **Versión** | **Finalidad** |               
-| ------------- | ------------- | ------------- |
-| Java |   11 | JDK |
-| Spring Tool Suite 4 | 4.9.0  | IDE |
-| Spring Boot |   2.6.4  | Framework |
-| Spring Boot Data JPA  | 2.6.3 | Mapeo de objetos y persistencia en la db |
-| Spring Validation  | 2.7 | Anotations para Validaciones |
-| Spring Security  | 2.6.7 | Módulo de Seguridad de Spring |
-| Json Web Token  | 0.9.1 | Manejo de Token's de Seguridad |
-| Lombok | 1.18.22 | Automatización de Código | 
-| SpringFox | 3.0.0 | Documentación de la Api | 
-| Swagger UI | 3.0.0 | Visualización y Gestión de la Api | 
-| Postman | 9.1.1 | Visualización y Gestión de la Api | 
-| Maven |  4.0.0 | Gestor de Proyectos |
-| PostgreSQL | 13.2 | Sistema de Gestión de DB'S |
-| DBeaver | 22.1  | Editor de Base de Datos |
-| pgAdmin | 5.1 | Sistema de Administración de DB'S |
-| CMD | 10 | Símbolo del Sistema para linea de comandos | 
-| Git | 2.29.1  | Control de Versiones |
+<br>
 
-</br>
+</details>
 
-### Patrones de Diseño Implementados
+
+### 1.1) Ejecución del Proyecto [🔝](#índice-)
+
+<details>
+  <summary>Ver</summary>
+  
+ <br>  
+  
+* Ejecutar la base de datos del proyecto.
+* Crear un entorno de trabajo a través de algún IDE (Para este caso utilizo STS 4). 
+* Clonar el Proyecto (`git clone https://github.com/andresWeitzel/ApiRest_MicroFrontEnd_ProductosSupermercado`)
+* Utilizando sts, dentro del package explorer click derecho sobre el proyecto, run as spring boot app.
+* Verificar logs del server.
+* Comprobar cada endpoint.
+
+<br>
+
+</details>
+
+
+
+### 1.2) Patrones de Diseño [🔝](#índice-)
+
+<details>
+  <summary>Ver</summary>
+  <br>
 
 | **Patrón de Diseño** | **Finalidad** |               
 | ------------- | ------------- |
-| DAO | Uso de interfaces entre la aplicación y el almacenamiento de datos. |
-| MVC | Separación y Representación de los Datos, Manejo de errores, Escalabilidad, etc  |
-| DTO | Transferencia de objectos separando la capa de acceso a datos  |
-| Dependency Inyection | Uso de funcionalidades requeridas de clases a través de inyección |
-| Otros | Otros |
+| [DAO](https://www.oscarblancarteblog.com/2018/12/10/data-access-object-dao-pattern/) | Uso de interfaces entre la aplicación y el almacenamiento de datos. |
+| [MVC](https://keepcoding.io/blog/que-es-el-patron-de-arquitectura-mvvm/) | Separación y Representación de los Datos, Manejo de errores, Escalabilidad, etc  |
+| [DTO](https://www.oscarblancarteblog.com/2018/11/30/data-transfer-object-dto-patron-diseno/) | Transferencia de objectos separando la capa de acceso a datos  |
+| [Dependency Inyection](https://en.wikipedia.org/wiki/Dependency_injection) | Uso de funcionalidades requeridas de clases a través de inyección |
 
+<br>
+</details>
+
+
+
+### 1.3) Tecnologías [🔝](#índice-)
+
+<details>
+  <summary>Ver</summary>
+ 
+ <br>
+
+| Tecnologías BACKEND | Versión | Finalidad
+| ------------- | ------------- | ------------- |
+| [Java]( https://www.oracle.com/java/technologies/javase/jdk12-archive-downloads.html) |   12.0.2 | JDK |
+| [Spring Tool Suite 4](https://spring.io/blog/2021/06/21/spring-tools-4-11-0-released) | 4.9.0  | IDE |
+| [Spring Boot](https://spring.io/) |   2.6.4  | Framework |
+| [Spring Boot Data JPA](https://spring.io/projects/spring-data-jpa)  | 2.6.3 | Mapeo de objetos y persistencia en la db |
+| [Spring Security](https://spring.io/projects/spring-security) | 2.6.7 | Servicios de Seguridad |
+| [JSON Web Token](https://jwt.io/) | 0.9.1 | Creación de tokens de acceso | 
+| [Maven](https://maven.apache.org/) |  4.0.0 | Gestor de Proyectos |
+| [Postman](https://www.postman.com/) | 9.4.1 | Test de Apis |
+| [Lombok](https://projectlombok.org/) | 1.18.22 | Automatización de Código | 
+| [SpringFox](https://github.com/springfox/springfox) | 3.0.0 | Documentación de la Api | 
+| [UI Swagger](https://swagger.io/tools/swagger-ui/) | 1.6.4 | Visualización y Gestión de la Api | 
+| [PostgreSQL](https://www.postgresql.org/) | 13.2 | Sistema de Gestión de DB'S |
+| [DBeaver](https://dbeaver.io/) | 22.1  | Editor de Base de Datos |
+| [pgAdmin](https://github.com/pgadmin-org/pgadmin4) | 5.1 | Sistema de Administración de DB'S |
+| [GNU bash / Terminal](https://www.gnu.org/software/bash/) | 4.4.23  | Bash / Terminal para el manejo e implementación de Git integrado al Spring Tool Suite |
+| [Git](https://git-scm.com/) | 2.29.1  | Control de Versiones |
+
+
+<br>
+
+</details>
 
 </br>
 
-### Dependencias Implementadas
+
+### 1.4) Dependencias Maven [🔝](#índice-)
+
+<details>
+ <summary>Ver</summary>
+ 
+ <br>
 
 | **Dependencia Maven**  | **Versión** | **Finalidad** |             
 | ------------- | ------------- | ------------- |
@@ -156,6 +179,125 @@
 | springfox-swagger-ui | 3.0.0 | Doc Api |
 | postgresql | 42.3.4 | Driver para el SGDB PostgreSQL | 
 | lombok | 1.18.22 |  Dependencia para la automatización de Código |
+
+
+<br>
+
+</details>
+
+
+
+
+<br>
+
+## Sección 2) EndPoints y Recursos
+
+### 2.0) EndPoints [🔝](#índice-)
+
+<details>
+ <summary>Ver</summary>
+ 
+### EndPoints Generales
+* http://localhost:8098/api/v1/productos/
+* http://localhost:8098/api/v1/admin/usuarios/
+* http://localhost:8098/api/v1/auth/
+
+
+### Descripción Api Rest
+![Index app](./doc/description.png)
+
+### Response Modelo Códigos Http
+![Index app](./doc/httpCodeSwagger01.png)
+![Index app](./doc/httpCodeSwagger02.png)
+
+### Beans Validations 
+![Index app](./doc/beanValidations.png)
+
+* Algunos de los recursos de cada endpoint se muestran en las siguientes imágenes.
+
+<br>
+
+</details>
+
+
+
+
+### 2.1) Recursos por Endpoints. (Swagger UI) [🔝](#índice-)
+
+<details>
+ <summary>Ver</summary>
+ 
+ 
+### Recursos por Endpoint
+
+### Producto Controller. 
+![Index app](./doc/productoController.png)
+
+
+### Usuario Controller. 
+![Index app](./doc/usuarioController.png)
+
+
+### Auth Controller. 
+![Index app](./doc/authController.png)
+ 
+<br>
+
+</details>
+
+
+
+
+<br>
+
+## Sección 3) Prueba de Funcionalidad y Referencias
+
+
+### 3.0) Prueba de Funcionalidad [🔝](#índice-)
+
+<details>
+ <summary>Ver</summary>
+
+
+### Login y Signin | [Ver funcionalidad](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2)  
+[![Alt text](./doc/miniaturasYt/loginSignin.png)](https://www.youtube.com/watch?v=vxmJAXwahNk&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=2) 
+
+### Refresh Token | [Ver funcionalidad](https://www.youtube.com/watch?v=P_iGkoIgXFM&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
+[![Alt text](./doc/miniaturasYt/refreshToken.png)](https://www.youtube.com/watch?v=P_iGkoIgXFM&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
+
+### Usuario Controller | [Ver funcionalidad](https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
+[![Alt text](./doc/miniaturasYt/usuarioController.png)](https://www.youtube.com/watch?v=eG7dirCPflU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=3) 
+
+
+### Usuario Bean Validations (Add) | [Ver funcionalidad](https://www.youtube.com/watch?v=U-6sD-k4_lg&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
+[![Alt text](./doc/miniaturasYt/beanUsuariosValidat01.png)](https://www.youtube.com/watch?v=U-6sD-k4_lg&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
+
+
+### Usuario Bean Validations (Update and Delete) | [Ver funcionalidad](https://www.youtube.com/watch?v=o8vOd0dERFI&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
+[![Alt text](./doc/miniaturasYt/beanUsuariosValidat02.png.png)](https://www.youtube.com/watch?v=o8vOd0dERFI&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
+
+
+### Producto Controller | [Ver funcionalidad](https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
+[![Alt text](./doc/miniaturasYt/productoController.png)](https://www.youtube.com/watch?v=JqrTA97Y4N4&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=4) 
+
+### Producto Bean Validations | [Ver funcionalidad](https://www.youtube.com/watch?v=ytdwagCbJXU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=7)
+[![Alt text](./doc/miniaturasYt/beanProductosValidation.png)](https://www.youtube.com/watch?v=ytdwagCbJXU&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=7) 
+
+
+### Documentación SwaggerUI-SpringFox | [Ver funcionalidad](https://www.youtube.com/watch?v=F2BlURXQaDs&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
+[![Alt text](./doc/miniaturasYt/docSwagger.png)](https://www.youtube.com/watch?v=F2BlURXQaDs&list=PLCl11UFjHurBM42b3iBbQ7iilddzG4t_L&index=5) 
+
+
+<br>
+
+</details>
+
+
+
+
+
+
+
 
 
 </br>
