@@ -299,6 +299,33 @@ public class ProductoService {
 		}
 
 	}
+	
+
+	// ===============
+	// ===== GET =====
+	// ===============
+	// ------ PESO CON FILTRO MAX & MIN--------
+	public Page<Producto> findByPeso(double minPeso,double maxPeso, Pageable pageable) {
+		try {
+
+			if (minPeso <= 0.0 || minPeso > maxPeso) {
+
+				logger.error("ERROR findByPeso : EL PRODUCTO SEGÚN EL PESO MÍN DE " + minPeso + " Y EL PESO MÁXIMO DE " 
+				+ maxPeso+ "NO ES VÁLIDO!!");
+
+				throw new ProductoNotFoundExc("EL PRODUCTO SEGÚN LOS VALORES DE PESOS INDICADO NO ES VÁLIDO");
+
+			} else {
+
+				return iProductoRepository.findByPeso(minPeso, maxPeso, pageable);
+			}
+		} catch (Exception e) {
+			logger.error("ERROR findByPeso : EL PRODUCTO SEGÚN EL PESO MÍN DE " + minPeso + " Y EL PESO MÁXIMO DE " 
+					+ maxPeso+ "NO ES VÁLIDO!! CAUSADO POR "+e);
+			throw new ProductoNotFoundExc("NO SE PUDO ENCONTRAR EL PRODUCTO ENTRE LOS PESOS SOLICITADOS ", e);
+		}
+
+	}
 
 	// ===============
 	// ===== GET =====

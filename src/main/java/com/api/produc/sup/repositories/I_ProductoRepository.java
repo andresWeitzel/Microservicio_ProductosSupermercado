@@ -42,6 +42,9 @@ public interface I_ProductoRepository
 	public abstract Page<Producto> findByGrupo(String grupo, Pageable pageable);
 
 	public abstract Page<Producto> findByPeso(double peso, Pageable pageable);
+	
+	@Query("select u from Producto u where u.peso >= ?1 and u.peso <= ?2")
+	public abstract Page<Producto> findByPeso(double minPeso, double maxPeso, Pageable pageable);
 
 	public abstract Page<Producto> findByPrecioUnidad(double precioUnidad, Pageable pageable);
 

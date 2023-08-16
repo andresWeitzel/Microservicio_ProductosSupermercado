@@ -445,6 +445,35 @@ public class ProductoController {
 	public Page<Producto> getByPeso(@PathVariable("peso") double peso, Pageable pageable) {
 		return productoService.findByPeso(peso, pageable);
 	}
+	
+	// ===================================
+	// ===== GET BY PESO (MAX. & MÍN.) ===
+	// ===================================
+	// ---LISTADO DE PRODUCTOS O PRODUCTO SEGÚN PESO MÍN Y MÁX---
+	@ApiOperation(value = "Producto/s Paginados según Peso Máx. y Mín.", notes="Devuelve el/los producto/s según  Peso Máx. y Mín. solicitado")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Se han Listado el/los Producto/s Correctamente"),
+			@ApiResponse(code = 201, message = "Se han Listado el/los Producto/s Correctamente"),
+			@ApiResponse(code = 400,  message = "No se han Listado el/los Producto/s Producto. Comprobar la Solicitud"),
+			@ApiResponse(code = 401,  message = "No está autorizado para listado el/los Producto/s . Verificar credenciales"),
+			@ApiResponse(code = 403,  message = "No se ha podido Listar el/los Producto/s . El servidor ha denegado esta operación"),
+			@ApiResponse(code = 404,  message = "El Listado de/de los Producto/s no está Disponible ya que el recurso pedido no existe. Comprobar solicitud"),
+			@ApiResponse(code = 405,  message = "El recurso ha sido deshabilitado."),
+			@ApiResponse(code = 407,  message = "La autenticación debe estar hecha a partir de un proxy."),
+			@ApiResponse(code = 408,  message = "Se ha superado el tiempo de espera entre la solicitud y el servidor. Intentar nuevamente"),
+			@ApiResponse(code = 409,  message = "Se ha generado un conflicto en el servidor. Intentar nuevamente"),
+			@ApiResponse(code = 410,  message = "El Contenido solicitado se ha Eliminado del Servidor."),
+			@ApiResponse(code = 422,  message = "Se ha producido un error ya que los valores pasados no son correctos. Verificar campos"),
+			@ApiResponse(code = 500,  message = "Se ha producido un error interno en el Servidor"),
+			@ApiResponse(code = 503,  message = "Se ha producido un error de sobrecarga o mantenimiento en el Servidor. Intentar luego."),
+			@ApiResponse(code = 505,  message = "Versión HTTP no es soportada por el Servidor."),
+			@ApiResponse(code = 507,  message = "Almacenamiento Insuficiente por parte del Servidor.")
+			})
+	@GetMapping("/peso/{minPeso}/{maxPeso}")
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+	public Page<Producto> getByPeso(@PathVariable("minPeso") double minPeso, @PathVariable("maxPeso") double maxPeso, Pageable pageable) {
+		return productoService.findByPeso(minPeso, maxPeso, pageable);
+	}
 
 	// ==============================
 	// ===== GET BY PRECIO_UNIDAD ===
