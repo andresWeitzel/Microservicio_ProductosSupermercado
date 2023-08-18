@@ -107,6 +107,57 @@
 							"response": []
 						},
 						{
+							"name": "getAllExcludeFilter",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/productos/listado-exclude-filter/bebidas?page=0&size=5&sort=id,asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"productos",
+										"listado-exclude-filter",
+										"bebidas"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "id,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "getByCodigo",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -464,6 +515,109 @@
 							"response": []
 						},
 						{
+							"name": "getByPesoFilterMax",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/productos/peso-filter/2.0?page=0&size=5&sort=id,asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"productos",
+										"peso-filter",
+										"2.0"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "id,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getByPesoFilterMinMax",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/productos/peso-filter/1.0/10.0?page=0&size=10&sort=id,asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"productos",
+										"peso-filter",
+										"1.0",
+										"10.0"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "sort",
+											"value": "id,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "getByPesoMaxMin",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -547,6 +701,109 @@
 										"productos",
 										"precio-unidad",
 										"270.0"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "id,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getByPrecioUnidadMax",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/productos/precio-unidad-filter/270.0?page=0&size=5&sort=id,asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"productos",
+										"precio-unidad-filter",
+										"270.0"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "id,asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getByPrecioUnidadMinMax",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{bearer-token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/productos/precio-unidad-filter/100/500.0?page=0&size=5&sort=id,asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"productos",
+										"precio-unidad-filter",
+										"100",
+										"500.0"
 									],
 									"query": [
 										{
@@ -762,6 +1019,92 @@
 			]
 		},
 		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"elias_jeron@gmail.com\",\r\n  \"nombre\": \"elias\",\r\n  \"password\": \"elias.KO.l12\",\r\n  \"roles\": [\r\n    \"User\"\r\n  ],\r\n  \"username\": \"jeron\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/signin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"admin\",\r\n    \"username\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"token\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/refresh-token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Usuarios",
 			"item": [
 				{
@@ -927,92 +1270,6 @@
 					]
 				}
 			]
-		},
-		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "signin",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"elias_jeron@gmail.com\",\r\n  \"nombre\": \"elias\",\r\n  \"password\": \"elias.KO.l12\",\r\n  \"roles\": [\r\n    \"User\"\r\n  ],\r\n  \"username\": \"jeron\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/auth/signin",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"auth",
-								"signin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"password\":\"admin\",\r\n    \"username\":\"admin\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/auth/login",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "refresh-token",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"token\": \"string\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/auth/refresh-token",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"auth",
-								"refresh-token"
-							]
-						}
-					},
-					"response": []
-				}
-			]
 		}
 	],
 	"event": [
@@ -1042,7 +1299,7 @@
 		},
 		{
 			"key": "bearer-token",
-			"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfVVNFUiIsIlJPTEVfQURNSU4iXSwiaWF0IjoxNjkyMjE1MTY4LCJleHAiOjE2OTIyMTg3Njh9.RlKUqKzGZQElQWhxTrlm8CjfzyjOD_lAfDG4GwbZqqE9KKqRme25Jvq0S_28mmSHdy8NmGukPOH5kUxMqT6gzQ"
+			"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwiaWF0IjoxNjkyMzg0NTk0LCJleHAiOjE2OTIzODgxOTR9.H3kbcZNEiS5NBtuA10KYnwZTNMWhYfPzHStMXBVfFCkSYeqboB0_noa11aKBi2XA7jpk04ISQC4Oh5soTvXblg"
 		}
 	]
 }
