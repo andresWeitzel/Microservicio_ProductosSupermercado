@@ -27,9 +27,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Producto {
 	
-	//Las vadidaciones de @Column se aplican para la creacion de campos y las 
-	//independientes @NotNull,@Size se comprueban en tiempo de ejecucion..
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")

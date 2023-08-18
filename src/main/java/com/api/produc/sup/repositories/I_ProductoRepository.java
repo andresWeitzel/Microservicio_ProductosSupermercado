@@ -23,7 +23,6 @@ public interface I_ProductoRepository
 	@Query("select c from Producto c where lower(c.codigo) like lower(concat('%', :codigo, '%'))")
 	public abstract Page<Producto> findByCodigo(String codigo, Pageable pageable);
 
-	//Para check
 	public abstract Producto findByCodigo(String codigo);
 
 	@Query("select c from Producto c where lower(c.imagen) like lower(concat('%', :imagen, '%'))")
@@ -43,14 +42,30 @@ public interface I_ProductoRepository
 
 	public abstract Page<Producto> findByPeso(double peso, Pageable pageable);
 
+	@Query("select u from Producto u where u.peso <= ?1")
+	public abstract Page<Producto> findByPesoFilter(double maxPeso, Pageable pageable);
+
+	@Query("select u from Producto u where u.peso >= ?1 and u.peso <= ?2")
+	public abstract Page<Producto> findByPesoFilter(double minPeso, double maxPeso, Pageable pageable);
+
 	public abstract Page<Producto> findByPrecioUnidad(double precioUnidad, Pageable pageable);
+
+	@Query("select u from Producto u where u.precioUnidad <= ?1")
+	public abstract Page<Producto> findByPrecioUnidadFilter(double maxPrecioUnidad, Pageable pageable);
+
+	@Query("select u from Producto u where u.precioUnidad >= ?1 and u.precioUnidad <= ?2")
+	public abstract Page<Producto> findByPrecioUnidadFilter(double minPrecioUnidad, double maxPrecioUnidad,
+			Pageable pageable);
 
 	public abstract Page<Producto> findByStock(int stock, Pageable pageable);
 
 	public abstract Page<Producto> findAll(Pageable pageable);
 
-	// ============= MÉTODOS DE BÚSQUEDA CON FILTRO ===================
-
 	@Query("select c from Producto c where concat( lower(c.codigo), lower(c.imagen) , lower(c.nombre), lower(c.marca), lower(c.tipo), lower(c.grupo) ) like lower( concat ( '%', ?1, '%'))")
-	public abstract Page<Producto> findAll(String filtro, Pageable pageable);
+	public abstract Page<Producto> findAllFilter(String filtro, Pageable pageable);
+
+	@Query("select c from Producto c where not concat (lower(c.codigo), lower(c.imagen) "
+			+ ", lower(c.nombre), lower(c.marca), lower(c.tipo), lower(c.grupo) "
+			+ ") like lower( concat ( '%', ?1, '%'))")
+	public abstract Page<Producto> findAllExcludeFilter(String filtro, Pageable pageable);
 }
