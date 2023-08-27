@@ -1,8 +1,8 @@
 <img src="./doc/beanValidations.png" style="width: 100%; height: 80%"/>
 
-# ApiRest Micro Front End Productos de Supermercado
+# Microservicio Productos de Supermercado
 
-* Api Rest para el Microservice App_MicroFrontEnd_Productos implementado con Spring Boot, Spring MVC, Spring Security, JWT , Spring Data JPA, SpringFox, Swagger UI, Maven, Lombok, Postman, Log4j, Git, DBeaver, pgAdmin y PostgreSQL.
+* Microservicio acerca de Productos de Supermercado implementado con Spring Boot, Spring MVC, Spring Security, JWT , Spring Data JPA, SpringFox, Swagger UI, Maven, Lombok, Postman, Log4j, Git, DBeaver, pgAdmin y PostgreSQL.
 
 
 </br>
@@ -60,7 +60,7 @@
  
  <br>
  
-* La Api Rest implementa todas las Operaciones CRUD, tanto para productos como para usuarios. 
+* El Microservicio implementa todas las Operaciones CRUD, tanto para productos como para usuarios. 
 * Se separa la capa de seguridad para la autenticación , implementando Spring Security y JWT. 
 * Además de realizar las operaciones CRUD para usuarios se aplica login y signin para la capa de presentación.
 * También se desarrollan los métodos de búsquedas independientes de tipo Like para todos los campos, tanto de usuarios como productos.
