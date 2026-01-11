@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.produc.sup.entities.Producto;
+import com.api.produc.sup.exc.productos.ProductoNotFoundExc;
 import com.api.produc.sup.services.ProductoService;
+import com.api.produc.sup.utils.http.JsonResponse;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
@@ -62,13 +64,19 @@ public class ProductoController {
 
 		try {
 
-			productoService.addProducto(producto);
+			Producto productAdded = productoService.addProducto(producto);
+			
+			if(productAdded != null) {
 
-			return new ResponseEntity<Producto>(producto, HttpStatus.OK);
+				return new ResponseEntity<Producto>(producto, HttpStatus.OK);
+			}
+
+
 
 		} catch (Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+			return new ResponseEntity<JsonResponse>(new JsonResponse(e), HttpStatus.BAD_REQUEST);
 		}
+		return null;
 
 	}
 

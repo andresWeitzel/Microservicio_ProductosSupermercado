@@ -26,30 +26,33 @@ public class ProductoService {
 	// ==================
 	// ===== INSERT =====
 	// ==================
-	public void addProducto(Producto producto) {
+	public Producto addProducto(Producto producto) {
 		try {
-			if (producto == null) {
-				logger.error("ERROR addProducto : EL PRODUCTO " + producto + " ES NULO!!");
-				throw new ProductoNotFoundExc("EL PRODUCTO ES NULO");
+
+			if (producto == null || producto.toString().isBlank() || !(producto instanceof Producto)) {
+				logger.error("ERROR in addProducto : EL PRODUCTO ES NULO!!");
+				throw new ProductoNotFoundExc("PRODUCTO NULO");
 			} else if (producto.getCodigo() == "" || producto.getImagen() == "" || producto.getNombre() == ""
 					|| producto.getMarca() == "" || producto.getTipo() == "" || producto.getGrupo() == ""
 					|| producto.getPeso() == 0.0 || producto.getPrecioUnidad() == 0.0 || producto.getStock() == 0.0) {
 				logger.error(
-						"ERROR addProducto : LOS VALORES DE LOS CAMPOS DEL PRODUCTO " + producto + " NO SON VÁLIDOS!!");
+						"ERROR in addProducto : LOS VALORES DE LOS CAMPOS DEL PRODUCTO NO SON VÁLIDOS!!");
 				throw new ProductoNotFoundExc("VALORES DE CAMPOS NO VÁLIDOS");
 
 			} else if (producto == iProductoRepository.findByCodigo(producto.getCodigo())) {
-				logger.error("ERROR addProducto : NO SE PUEDE REPETIR EL PRODUCTO " + producto + " !!");
+				logger.error("ERROR in addProducto : NO SE PUEDE REPETIR EL PRODUCTO " + producto + " !!");
 				throw new ProductoNotFoundExc("NO SE PUEDE REPETIR UN PRODUCTO");
 
 			} else {
-				iProductoRepository.save(producto);
+				
+				return iProductoRepository.save(producto);
 			}
+			
 
 		} catch (Exception e) {
 			logger.error(
-					"ERROR addProducto : EL PRODUCTO " + producto + " NO SE HA INSERTADO EN LA DB!! CAUSADO POR " + e);
-			throw new ProductoNotFoundExc("NO SE PUDO AGREGAR EL PRODUCTO ", e, false, true);
+					"ERROR in addProducto : EL PRODUCTO NO SE HA INSERTADO EN LA DB!! CAUSADO POR " + e.getMessage());
+			throw new ProductoNotFoundExc("NO SE PUDO AGREGAR EL PRODUCTO. ERROR CAUSADO POR "+ e.getMessage(), e.getCause(), false, true);
 		}
 	}
 
